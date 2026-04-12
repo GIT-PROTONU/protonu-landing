@@ -15,7 +15,9 @@
       "Bash(curl -L -o assets/images/favicon.png \"https://protonu.com/user/images/g5_helium/favi.png\")",
       "Bash(git add:*)",
       "Bash(git commit -m ':*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git push:*)",
+      "WebFetch(domain:jaconir.online)"
     ]
   }
 }
