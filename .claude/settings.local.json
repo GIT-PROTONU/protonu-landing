@@ -1,7 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "WebFetch(domain:protonu.com)",
+      "Bash(curl -L -o assets/images/img.jpg \"https://protonu.com/user/images/g5_helium/img.jpg\")",
+      "Bash(curl -L -o assets/images/er.jpg \"https://protonu.com/user/images/g5_helium/er.jpg\")",
+      "Bash(curl -L -o assets/images/davincni.jpg \"https://protonu.com/user/images/g5_helium/davicnci.jpg\")",
+      "Bash(curl -L -o assets/images/robodk.png \"https://protonu.com/user/pages/home/RoboDK_screenshot.png\")",
+      "Bash(curl -L -o assets/images/hollt.jpg \"https://protonu.com/user/images/g5_helium/Hollt_Holltesizer_Picture_3-1024x683.jpg\")",
+      "Bash(curl -L -o assets/images/pa.jpg \"https://protonu.com/user/images/g5_helium/pa.jpg\")",
+      "Bash(wait)",
+      "Bash(file assets/images/*.jpg assets/images/*.png)",
+      "Bash(curl -s \"https://protonu.com/\")",
+      "Bash(curl -L -o assets/images/favicon.png \"https://protonu.com/user/images/g5_helium/favi.png\")",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)"
     ]
   }
 }
