@@ -14,7 +14,8 @@
       "Bash(curl -s \"https://protonu.com/\")",
       "Bash(curl -L -o assets/images/favicon.png \"https://protonu.com/user/images/g5_helium/favi.png\")",
       "Bash(git add:*)",
-      "Bash(git commit -m ':*)"
+      "Bash(git commit -m ':*)",
+      "WebSearch"
     ]
   }
 }
