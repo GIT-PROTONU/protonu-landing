@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean, modern landing page." />
+  <title>Landing Page</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav__logo">Brand</div>
+    <nav class="nav__links">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav__cta btn btn--primary">Get Started</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__content">
+      <h1 class="hero__headline">Build something great.</h1>
+      <p class="hero__sub">A minimal, fast, and beautiful starting point for your next project.</p>
+      <div class="hero__actions">
+        <a href="#features" class="btn btn--primary">See Features</a>
+        <a href="#contact" class="btn btn--ghost">Contact Us</a>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <div class="hero__blob"></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <h2 class="section-title">Why choose us?</h2>
+    <div class="features__grid">
+      <div class="card" data-animate>
+        <div class="card__icon">&#9679;</div>
+        <h3>Fast</h3>
+        <p>Zero dependencies. Pure HTML, CSS, and JavaScript — ships instantly.</p>
+      </div>
+      <div class="card" data-animate>
+        <div class="card__icon">&#9650;</div>
+        <h3>Responsive</h3>
+        <p>Looks great on every screen size out of the box.</p>
+      </div>
+      <div class="card" data-animate>
+        <div class="card__icon">&#9670;</div>
+        <h3>Customizable</h3>
+        <p>Clean structure makes it trivial to restyle or extend.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about__text">
+      <h2 class="section-title">About</h2>
+      <p>This is a starter template — swap in your real copy, assets, and colours. The layout is built with CSS custom properties so a single edit ripples through the whole design.</p>
+    </div>
+    <div class="about__image-wrap">
+      <img src="assets/images/placeholder.svg" alt="Illustration" class="about__image" />
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2 class="section-title">Get in touch</h2>
+    <form class="contact__form" id="contactForm" novalidate>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="How can we help?" required></textarea>
+
+      <button type="submit" class="btn btn--primary">Send Message</button>
+      <p class="contact__status" id="formStatus" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Brand. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
