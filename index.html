@@ -30,11 +30,12 @@
     <nav class="nav__links" aria-label="Primary">
       <a href="#process">Process</a>
       <a href="#projects">Projects</a>
+      <a href="#roi">ROI Estimate</a>
       <a href="#contact">Contact</a>
     </nav>
     <a class="btn btn--primary btn--sm" href="https://calendly.com/ibrahim-protonu"
        target="_blank" rel="noopener noreferrer" data-magnetic>
-      Book a Free Call
+      Schedule a Deep-Dive
     </a>
   </header>
 
@@ -69,10 +70,20 @@
         <div class="hero__actions" data-reveal>
           <a class="btn btn--primary" href="https://calendly.com/ibrahim-protonu"
              target="_blank" rel="noopener noreferrer" data-magnetic>
-            Book a Free 30-Min Call
+            Request a System Audit
           </a>
-          <span class="cta-note">No commitment &mdash; see if we&rsquo;re a fit.</span>
+          <!-- Add your YouTube video ID to data-hero-video to enable the demo modal -->
+          <button class="btn btn--ghost-white hero__video-btn"
+                  data-hero-video=""
+                  data-magnetic
+                  aria-label="Watch a demonstration video">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Watch in Action
+          </button>
         </div>
+        <p class="hero__compat-note" data-reveal>
+          No hardware overhaul required &middot; Integrates with existing PLC &amp; SCADA systems
+        </p>
       </div>
 
       <!-- Right: photo -->
@@ -152,6 +163,53 @@
       <span class="marquee__sep" aria-hidden="true">&#10022;</span>
     </div>
   </div>
+
+  <!-- ===================== SOCIAL PROOF ===================== -->
+  <!--
+    TIP: Replace the placeholder quotes below with real 1-2 sentence quotes
+    from each client's CTO / Head of Operations.
+  -->
+  <section class="proof" id="proof" aria-labelledby="proof-title">
+    <div class="proof__inner">
+      <div class="proof__header">
+        <p class="eyebrow">Client Results</p>
+        <h2 class="section-title" id="proof-title">Real results,<br>in production.</h2>
+      </div>
+      <div class="proof__quotes">
+
+        <blockquote class="proof__quote" data-animate>
+          <svg class="proof__quote-mark" viewBox="0 0 32 24" aria-hidden="true">
+            <path d="M0 24V14.4C0 10.08 1.28 6.56 3.84 3.84 6.4 1.12 9.92 0 14.4 0v4.8c-2.88 0-5.12.8-6.72 2.4C6.08 8.8 5.28 11.2 5.28 14.4H9.6V24H0zm17.6 0V14.4c0-4.32 1.28-7.84 3.84-10.56C24 1.12 27.52 0 32 0v4.8c-2.88 0-5.12.8-6.72 2.4-1.6 1.6-2.4 4-2.4 7.2h4.32V24H17.6z" fill="currentColor"/>
+          </svg>
+          <!-- REPLACE: Add a 1–2 sentence quote about a specific bottleneck PROTONU solved and the measurable outcome. -->
+          <p class="proof__quote-text">"[Add a 1–2 sentence quote here about a specific bottleneck that was solved and the measurable result — e.g. cycle time, cost saving, or hours recovered.]"</p>
+          <footer class="proof__quote-footer">
+            <img src="assets/images/davincni.jpg" alt="Davinci Kitchen" class="proof__quote-avatar" />
+            <div>
+              <strong class="proof__quote-name">Name, Job Title</strong>
+              <span class="proof__quote-company">Davinci Kitchen</span>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="proof__quote" data-animate>
+          <svg class="proof__quote-mark" viewBox="0 0 32 24" aria-hidden="true">
+            <path d="M0 24V14.4C0 10.08 1.28 6.56 3.84 3.84 6.4 1.12 9.92 0 14.4 0v4.8c-2.88 0-5.12.8-6.72 2.4C6.08 8.8 5.28 11.2 5.28 14.4H9.6V24H0zm17.6 0V14.4c0-4.32 1.28-7.84 3.84-10.56C24 1.12 27.52 0 32 0v4.8c-2.88 0-5.12.8-6.72 2.4-1.6 1.6-2.4 4-2.4 7.2h4.32V24H17.6z" fill="currentColor"/>
+          </svg>
+          <!-- REPLACE: Add a 1–2 sentence quote about a specific bottleneck PROTONU solved and the measurable outcome. -->
+          <p class="proof__quote-text">"[Add a 1–2 sentence quote here about a specific bottleneck that was solved and the measurable result — e.g. cycle time, cost saving, or hours recovered.]"</p>
+          <footer class="proof__quote-footer">
+            <img src="assets/images/robodk.png" alt="Kopernikus Automotive" class="proof__quote-avatar" />
+            <div>
+              <strong class="proof__quote-name">Name, Job Title</strong>
+              <span class="proof__quote-company">Kopernikus Automotive</span>
+            </div>
+          </footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ===================== PROCESS ===================== -->
   <section class="process" id="process" aria-labelledby="process-title">
@@ -297,6 +355,103 @@
     </div>
   </section>
 
+  <!-- ===================== ROI CALCULATOR ===================== -->
+  <section class="roi" id="roi" aria-labelledby="roi-title">
+    <div class="roi__inner">
+
+      <div class="roi__copy">
+        <p class="eyebrow">Free Estimate</p>
+        <h2 class="section-title" id="roi-title">How much could<br>you save?</h2>
+        <p class="roi__sub">
+          Enter your current operation below for an instant estimate.
+          A scoping call unlocks the full financial model tailored to your process.
+        </p>
+        <a class="btn btn--primary roi__copy-cta" href="https://calendly.com/ibrahim-protonu"
+           target="_blank" rel="noopener noreferrer" data-magnetic>
+          Get Your Detailed Report &rarr;
+        </a>
+        <p class="roi__copy-note">
+          Pick your slot instantly &mdash; no waiting, no sales rep, no obligation.
+        </p>
+      </div>
+
+      <div class="roi__card" data-animate>
+        <div class="roi__fields">
+
+          <label class="roi__field">
+            <span class="roi__label">Industry</span>
+            <select id="roiIndustry" class="roi__input">
+              <option value="1.0">Manufacturing</option>
+              <option value="1.1">Logistics &amp; Warehousing</option>
+              <option value="1.05">Food &amp; Beverage</option>
+              <option value="0.95">Automotive</option>
+              <option value="0.85">Other</option>
+            </select>
+          </label>
+
+          <label class="roi__field">
+            <span class="roi__label">Manual hours&nbsp;/ day on target task</span>
+            <input class="roi__input" type="number" id="roiHours" min="1" max="24" value="8" />
+          </label>
+
+          <label class="roi__field">
+            <span class="roi__label">Workers on this task</span>
+            <input class="roi__input" type="number" id="roiWorkers" min="1" max="200" value="3" />
+          </label>
+
+          <label class="roi__field">
+            <span class="roi__label">Avg. hourly labour cost (&euro;)</span>
+            <input class="roi__input" type="number" id="roiRate" min="10" max="300" value="28" />
+          </label>
+
+        </div>
+
+        <div class="roi__output" aria-live="polite" aria-label="Savings estimate">
+          <div class="roi__output-item">
+            <span class="roi__output-num" id="roiSavings" data-current="0">&mdash;</span>
+            <span class="roi__output-label">Est. annual saving</span>
+          </div>
+          <div class="roi__output-divider" aria-hidden="true"></div>
+          <div class="roi__output-item">
+            <span class="roi__output-num" id="roiPayback" data-current="0">&mdash;</span>
+            <span class="roi__output-label">Typical payback period</span>
+          </div>
+        </div>
+
+        <p class="roi__note">
+          Based on industry benchmarks assuming ~65&nbsp;% automation efficiency gain.
+          Actual results vary by process complexity.
+        </p>
+
+        <a class="btn btn--primary" href="https://calendly.com/ibrahim-protonu"
+           target="_blank" rel="noopener noreferrer" data-magnetic>
+          Get Your Detailed Report &rarr;
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== COMPATIBILITY ===================== -->
+  <div class="compat" aria-label="Integration compatibility">
+    <div class="compat__inner">
+      <p class="compat__label">Integrates with your existing infrastructure</p>
+      <ul class="compat__list">
+        <li>RoboDK</li>
+        <li>ROS&nbsp;/&nbsp;ROS&nbsp;2</li>
+        <li>Modbus&nbsp;TCP</li>
+        <li>OPC&#8209;UA</li>
+        <li>PLCopen</li>
+        <li>REST&nbsp;APIs</li>
+        <li>Python&nbsp;SDK</li>
+        <li>SCADA</li>
+      </ul>
+      <p class="compat__assurance">
+        No hardware overhaul required &middot; Up and running in days, not months
+      </p>
+    </div>
+  </div>
+
   <!-- ===================== CTA BANNER ===================== -->
   <section class="cta-banner" id="contact" aria-labelledby="cta-title">
     <div class="cta-banner__inner">
@@ -305,14 +460,14 @@
         Ready to automate<br>your next project?
       </h2>
       <p class="cta-banner__sub">
-        Book a free 30-minute call. We&rsquo;ll look at your process, identify
-        what can be automated, and outline a realistic path forward &mdash;
+        Book a free 30-minute strategy call. We&rsquo;ll audit your process, identify
+        automation opportunities, and walk through your ROI projection &mdash;
         no sales pitch, no obligation.
       </p>
       <div class="cta-banner__actions">
         <a class="btn btn--white" href="https://calendly.com/ibrahim-protonu"
            target="_blank" rel="noopener noreferrer" data-magnetic>
-          Book Your Free Strategy Call
+          Schedule Your Free Audit
         </a>
         <a class="btn btn--ghost-white"
            href="https://api.whatsapp.com/send/?phone=31626192418&text=Hello+Ibrahim&app_absent=0"

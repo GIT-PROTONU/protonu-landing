@@ -256,6 +256,92 @@ backdrop.addEventListener('click', closeModal);
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
 
 /* =============================================
+   HERO VIDEO BUTTON
+   "Watch in Action" — add a YouTube ID to data-hero-video on the button to enable
+   ============================================= */
+const heroVideoBtn = document.querySelector('.hero__video-btn');
+if (heroVideoBtn) {
+  heroVideoBtn.addEventListener('click', () => {
+    const vid = (heroVideoBtn.dataset.heroVideo || '').trim();
+    if (vid) {
+      modalMedia.innerHTML = `<div class="video-wrap"><iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="PROTONU in Action"></iframe></div>`;
+    } else {
+      modalMedia.innerHTML = `<img src="assets/images/er.jpg" alt="PROTONU automation demo" />`;
+    }
+    modalClient.textContent = 'PROTONU';
+    modalTitle.textContent  = 'Automation in Action';
+    modalTags.textContent   = vid ? '' : 'Add your YouTube video ID to the data-hero-video attribute on the hero button';
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    modalClose.focus();
+  });
+}
+
+/* =============================================
+   ROI CALCULATOR
+   ============================================= */
+function makeAnimator() {
+  let raf = null;
+  return function animate(el, target, formatter) {
+    cancelAnimationFrame(raf);
+    const from    = parseFloat(el.dataset.current) || 0;
+    const startTs = performance.now();
+    const dur     = 600;
+    function step(ts) {
+      const p    = Math.min((ts - startTs) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val  = Math.round(from + (target - from) * ease);
+      el.textContent    = formatter(val);
+      if (p < 1) {
+        raf = requestAnimationFrame(step);
+      } else {
+        el.textContent    = formatter(target);
+        el.dataset.current = target;
+      }
+    }
+    raf = requestAnimationFrame(step);
+  };
+}
+
+const animSavings = makeAnimator();
+const animPayback = makeAnimator();
+
+function fmtEuro(n) {
+  if (n <= 0) return '—';
+  if (n >= 1000) return '€' + (n / 1000).toFixed(n % 1000 === 0 ? 0 : 1) + 'k/yr';
+  return '€' + n + '/yr';
+}
+function fmtMonths(n) {
+  return n > 0 ? n + ' mo' : '—';
+}
+
+function calcROI() {
+  const industry = parseFloat(document.getElementById('roiIndustry').value) || 1;
+  const hours    = Math.max(0, parseFloat(document.getElementById('roiHours').value)   || 0);
+  const workers  = Math.max(0, parseFloat(document.getElementById('roiWorkers').value) || 0);
+  const rate     = Math.max(0, parseFloat(document.getElementById('roiRate').value)    || 0);
+
+  // 22 working days/month · 65 % automation efficiency gain · industry multiplier
+  const monthSaving  = hours * workers * rate * 22 * 0.65 * industry;
+  const annualSaving = Math.round(monthSaving * 12 / 500) * 500;
+
+  // Rough implementation cost estimate (capped between €25 k and €300 k)
+  const implCost = Math.min(Math.max(annualSaving * 0.55, 25000), 300000);
+  const payback  = monthSaving > 0 ? Math.round(implCost / monthSaving) : 0;
+
+  const savingsEl = document.getElementById('roiSavings');
+  const paybackEl = document.getElementById('roiPayback');
+  if (!savingsEl || !paybackEl) return;
+
+  animSavings(savingsEl, annualSaving, fmtEuro);
+  animPayback(paybackEl, payback,      fmtMonths);
+}
+
+const roiInputs = document.querySelectorAll('#roiIndustry,#roiHours,#roiWorkers,#roiRate');
+roiInputs.forEach(el => el.addEventListener('input', calcROI));
+if (roiInputs.length) calcROI();
+
+/* =============================================
    NAV ACTIVE LINK ON SCROLL
    ============================================= */
 const navLinks = document.querySelectorAll('.nav__links a');
