@@ -4,11 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="PROTONU — Robotics prototyping, process automation and embedded systems consultancy. Based in the Netherlands." />
-  <meta name="keywords" content="Prototyping, IT Services, Hardware, Software, Embedded Systems, PCB Design, CAD, CAM, 3D Design, Automation, Robotics" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#08080A" />
   <title>PROTONU — Innovate. Automate. Succeed.</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://protonu.com/" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-  <link rel="preload" as="image" href="assets/images/img.jpg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://protonu.com/" />
+  <meta property="og:title"       content="PROTONU — Robotics & Process Automation" />
+  <meta property="og:description" content="From robotics prototypes to full process automation. PROTONU helps companies in hardware, software and embedded systems move faster, cut costs, and scale with confidence." />
+  <meta property="og:image"       content="https://protonu.com/assets/images/img.jpg" />
+  <meta property="og:locale"      content="en_NL" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="PROTONU — Robotics & Process Automation" />
+  <meta name="twitter:description" content="From robotics prototypes to full process automation — based in the Netherlands." />
+  <meta name="twitter:image"      content="https://protonu.com/assets/images/img.jpg" />
+
+  <!-- DNS prefetch / preconnect for external services -->
+  <link rel="preconnect"    href="https://calendly.com" />
+  <link rel="dns-prefetch"  href="https://api.whatsapp.com" />
+  <link rel="dns-prefetch"  href="https://www.linkedin.com" />
+  <link rel="dns-prefetch"  href="https://www.youtube.com" />
+  <link rel="dns-prefetch"  href="https://i.ytimg.com" />
+
+  <!-- LCP image: preload with high priority -->
+  <link rel="preload" as="image" href="assets/images/img.jpg" fetchpriority="high" />
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "PROTONU",
+    "description": "Robotics prototyping, process automation and embedded systems consultancy based in the Netherlands.",
+    "url": "https://protonu.com",
+    "logo": "https://protonu.com/assets/images/favicon.png",
+    "image": "https://protonu.com/assets/images/img.jpg",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Netherlands"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "NL"
+    },
+    "identifier": "71072853",
+    "sameAs": ["https://www.linkedin.com/in/elfaramawy/"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "url": "https://calendly.com/ibrahim-protonu"
+    },
+    "knowsAbout": ["Robotics", "Process Automation", "Embedded Systems", "PCB Design", "RoboDK", "ROS"]
+  }
+  </script>
 </head>
 <body>
 
@@ -53,11 +111,8 @@
         <p class="eyebrow" data-reveal>Robotics &amp; Process Automation</p>
 
         <h1 class="hero__headline">
-          <!-- Line 1 — text scramble on load -->
           <span class="hero__line hero__line--solid" id="scrambleLine">Turn Manual Work</span>
-          <!-- Line 2 — outlined / stroke text -->
           <span class="hero__line hero__line--outline" data-reveal>Into Automated</span>
-          <!-- Line 3 — red accent -->
           <span class="hero__line hero__line--accent" data-reveal>Results.</span>
         </h1>
 
@@ -86,10 +141,9 @@
         </p>
       </div>
 
-      <!-- Right: photo -->
-      <div class="hero__visual" data-reveal>
+      <!-- Right: photo — no data-reveal so LCP image is visible immediately -->
+      <div class="hero__visual">
         <div class="hero__photo-wrap">
-          <!-- Precision corner markers -->
           <span class="corner corner--tl" aria-hidden="true"></span>
           <span class="corner corner--tr" aria-hidden="true"></span>
           <span class="corner corner--bl" aria-hidden="true"></span>
@@ -100,10 +154,10 @@
              aria-label="Ibrahim Elfaramawy on LinkedIn">
             <img src="assets/images/img.jpg"
                  alt="Ibrahim Elfaramawy – Owner, PROTONU"
-                 width="280" height="280" />
+                 width="280" height="280"
+                 fetchpriority="high" />
           </a>
 
-          <!-- LinkedIn name tag — fully clickable -->
           <a class="hero__photo-tag"
              href="https://www.linkedin.com/in/elfaramawy/"
              target="_blank" rel="noopener noreferrer"
@@ -184,7 +238,11 @@
           <!-- REPLACE: Add a 1–2 sentence quote about a specific bottleneck PROTONU solved and the measurable outcome. -->
           <p class="proof__quote-text">"[Add a 1–2 sentence quote here about a specific bottleneck that was solved and the measurable result — e.g. cycle time, cost saving, or hours recovered.]"</p>
           <footer class="proof__quote-footer">
-            <img src="assets/images/davincni.jpg" alt="Davinci Kitchen" class="proof__quote-avatar" />
+            <img src="assets/images/davincni.jpg"
+                 alt="Davinci Kitchen"
+                 class="proof__quote-avatar"
+                 width="44" height="44"
+                 loading="lazy" decoding="async" />
             <div>
               <strong class="proof__quote-name">Name, Job Title</strong>
               <span class="proof__quote-company">Davinci Kitchen</span>
@@ -199,7 +257,11 @@
           <!-- REPLACE: Add a 1–2 sentence quote about a specific bottleneck PROTONU solved and the measurable outcome. -->
           <p class="proof__quote-text">"[Add a 1–2 sentence quote here about a specific bottleneck that was solved and the measurable result — e.g. cycle time, cost saving, or hours recovered.]"</p>
           <footer class="proof__quote-footer">
-            <img src="assets/images/robodk.png" alt="Kopernikus Automotive" class="proof__quote-avatar" />
+            <img src="assets/images/robodk.png"
+                 alt="Kopernikus Automotive"
+                 class="proof__quote-avatar"
+                 width="44" height="44"
+                 loading="lazy" decoding="async" />
             <div>
               <strong class="proof__quote-name">Name, Job Title</strong>
               <span class="proof__quote-company">Kopernikus Automotive</span>
@@ -280,7 +342,7 @@
     <!--
       data-video = YouTube video ID — add one to any card to show
       a play badge and embed the video in the modal.
-      Example: data-video="dQw4w9WgXcQ"
+      data-bg is set on .bento__bg and lazy-loaded by JS when the card enters the viewport.
     -->
     <div class="bento">
 
@@ -289,7 +351,7 @@
                data-title="Cooking Robot, bon Appétit!"
                data-client="Davinci Kitchen"
                data-tags="Robotics · Hardware · Software">
-        <div class="bento__bg" style="background-image:url('assets/images/davincni.jpg')"></div>
+        <div class="bento__bg" data-bg="assets/images/davincni.jpg"></div>
         <div class="bento__index" aria-hidden="true">01</div>
         <div class="bento__overlay">
           <div class="bento__tags">Robotics &middot; Hardware &middot; Software</div>
@@ -306,7 +368,7 @@
                data-title="Automated EV Charging"
                data-client="Kopernikus Automotive"
                data-tags="Robotics · RoboDK · Automation">
-        <div class="bento__bg" style="background-image:url('assets/images/robodk.png')"></div>
+        <div class="bento__bg" data-bg="assets/images/robodk.png"></div>
         <div class="bento__index" aria-hidden="true">02</div>
         <div class="bento__overlay">
           <div class="bento__tags">Robotics &middot; RoboDK &middot; Automation</div>
@@ -323,7 +385,7 @@
                data-title="DJ Controller for a World Class DJ"
                data-client="HOLLT"
                data-tags="Hardware · Embedded Systems · PCB">
-        <div class="bento__bg" style="background-image:url('assets/images/hollt.jpg')"></div>
+        <div class="bento__bg" data-bg="assets/images/hollt.jpg"></div>
         <div class="bento__index" aria-hidden="true">03</div>
         <div class="bento__overlay">
           <div class="bento__tags">Hardware &middot; Embedded &middot; PCB</div>
@@ -340,7 +402,7 @@
                data-title="Computer Generated Contracts"
                data-client="Privacy Assistant"
                data-tags="Software · AI · Process Automation">
-        <div class="bento__bg" style="background-image:url('assets/images/pa.jpg')"></div>
+        <div class="bento__bg" data-bg="assets/images/pa.jpg"></div>
         <div class="bento__index" aria-hidden="true">04</div>
         <div class="bento__overlay">
           <div class="bento__tags">Software &middot; AI &middot; Process Automation</div>
@@ -518,6 +580,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

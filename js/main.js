@@ -4,12 +4,18 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 /* =============================================
-   SCROLL PROGRESS BAR
+   SCROLL PROGRESS BAR  (RAF-throttled)
    ============================================= */
 const scrollBar = document.getElementById('scrollBar');
+let scrollRafPending = false;
 window.addEventListener('scroll', () => {
-  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-  scrollBar.style.transform = `scaleX(${pct})`;
+  if (scrollRafPending) return;
+  scrollRafPending = true;
+  requestAnimationFrame(() => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    scrollBar.style.transform = `scaleX(${pct})`;
+    scrollRafPending = false;
+  });
 }, { passive: true });
 
 /* =============================================
@@ -31,14 +37,24 @@ if (window.matchMedia('(pointer: fine)').matches) {
     dot.style.top  = my + 'px';
   }, { passive: true });
 
-  // Ring follows with smooth lag
-  (function animateRing() {
-    rx += (mx - rx) * 0.13;
-    ry += (my - ry) * 0.13;
+  // Ring follows with smooth lag — idles when settled to save CPU
+  let ringRaf = null;
+  function animateRing() {
+    const dx = mx - rx;
+    const dy = my - ry;
+    rx += dx * 0.13;
+    ry += dy * 0.13;
     ring.style.left = rx + 'px';
     ring.style.top  = ry + 'px';
-    requestAnimationFrame(animateRing);
-  })();
+    if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+      ringRaf = requestAnimationFrame(animateRing);
+    } else {
+      ringRaf = null;
+    }
+  }
+  document.addEventListener('mousemove', () => {
+    if (!ringRaf) ringRaf = requestAnimationFrame(animateRing);
+  }, { passive: true });
 
   // Grow ring on interactive elements
   document.querySelectorAll('a, button, [role="button"]').forEach(el => {
@@ -177,6 +193,20 @@ document.querySelectorAll('[data-magnetic]').forEach(el => {
     el.style.transform = '';
   });
 });
+
+/* =============================================
+   LAZY BACKGROUND IMAGES  (data-bg attribute)
+   ============================================= */
+const bgObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    el.style.backgroundImage = `url(${el.dataset.bg})`;
+    bgObs.unobserve(el);
+  });
+}, { rootMargin: '200px' });
+
+document.querySelectorAll('[data-bg]').forEach(el => bgObs.observe(el));
 
 /* =============================================
    3-D CARD TILT  (bento cards)
