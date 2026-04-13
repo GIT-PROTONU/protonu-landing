@@ -8,6 +8,23 @@
   <meta name="theme-color" content="#08080A" />
   <title>PROTONU — Innovate. Automate. Succeed.</title>
 
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' https: data:;
+    frame-src https://www.youtube.com;
+    connect-src 'none';
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'none';
+  " />
+
+  <!-- Referrer Policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
   <!-- Canonical -->
   <link rel="canonical" href="https://protonu.com/" />
 

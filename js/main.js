@@ -69,7 +69,7 @@ if (window.matchMedia('(pointer: fine)').matches) {
 class TextScramble {
   constructor(el) {
     this.el    = el;
-    this.chars = '01-=/\\[]{}+*#@$%?!<>';
+    this.chars = '01-=/\\[]{}+*#@$%?!';
     this._update = this._update.bind(this);
   }
   run(text) {
@@ -201,7 +201,8 @@ const bgObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     const el = entry.target;
-    el.style.backgroundImage = `url(${el.dataset.bg})`;
+    // Quote and encode to prevent CSS injection via a malicious data-bg value
+    el.style.backgroundImage = `url("${el.dataset.bg.replace(/\\/g, '\\\\').replace(/"/g, '%22')}")`;
     bgObs.unobserve(el);
   });
 }, { rootMargin: '200px' });
@@ -249,17 +250,40 @@ const modalTags   = document.getElementById('modalTags');
 const modalClose  = document.getElementById('modalClose');
 const backdrop    = modal.querySelector('.modal__backdrop');
 
+// Allow only the standard YouTube video ID charset (alphanumeric, dash, underscore)
+function isSafeYTId(id) {
+  return /^[\w-]{1,20}$/.test(id);
+}
+
+// Build YouTube iframe via DOM — never innerHTML — to prevent XSS via data attributes
+function buildYTIframe(vid, title) {
+  const wrap = document.createElement('div');
+  wrap.className = 'video-wrap';
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(vid)}?autoplay=1&rel=0&modestbranding=1`;
+  // clipboard-write omitted — grants silent clipboard access, not needed for playback
+  iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowFullscreen = true;
+  iframe.title = title || '';
+  iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation allow-popups');
+  wrap.appendChild(iframe);
+  return wrap;
+}
+
 function openModal(card) {
   modalClient.textContent = card.dataset.client || '';
   modalTitle.textContent  = card.dataset.title  || '';
   modalTags.textContent   = card.dataset.tags   || '';
+
+  modalMedia.innerHTML = '';  // clear previous content safely
   const vid = (card.dataset.video || '').trim();
-  if (vid) {
-    modalMedia.innerHTML = `<div class="video-wrap"><iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="${card.dataset.title || ''}"></iframe></div>`;
+  if (vid && isSafeYTId(vid)) {
+    modalMedia.appendChild(buildYTIframe(vid, card.dataset.title || ''));
   } else if (card.dataset.image) {
-    modalMedia.innerHTML = `<img src="${card.dataset.image}" alt="${card.dataset.title || ''}" />`;
-  } else {
-    modalMedia.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = card.dataset.image;
+    img.alt = card.dataset.title || '';
+    modalMedia.appendChild(img);
   }
   modal.hidden = false;
   document.body.style.overflow = 'hidden';
@@ -293,14 +317,18 @@ const heroVideoBtn = document.querySelector('.hero__video-btn');
 if (heroVideoBtn) {
   heroVideoBtn.addEventListener('click', () => {
     const vid = (heroVideoBtn.dataset.heroVideo || '').trim();
-    if (vid) {
-      modalMedia.innerHTML = `<div class="video-wrap"><iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&rel=0&modestbranding=1" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen title="PROTONU in Action"></iframe></div>`;
+    modalMedia.innerHTML = '';  // clear previous content safely
+    if (vid && isSafeYTId(vid)) {
+      modalMedia.appendChild(buildYTIframe(vid, 'PROTONU in Action'));
     } else {
-      modalMedia.innerHTML = `<img src="assets/images/er.jpg" alt="PROTONU automation demo" />`;
+      const img = document.createElement('img');
+      img.src = 'assets/images/er.jpg';
+      img.alt = 'PROTONU automation demo';
+      modalMedia.appendChild(img);
     }
     modalClient.textContent = 'PROTONU';
     modalTitle.textContent  = 'Automation in Action';
-    modalTags.textContent   = vid ? '' : 'Add your YouTube video ID to the data-hero-video attribute on the hero button';
+    modalTags.textContent   = (vid && isSafeYTId(vid)) ? '' : 'Add your YouTube video ID to the data-hero-video attribute on the hero button';
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     modalClose.focus();
@@ -347,9 +375,10 @@ function fmtMonths(n) {
 
 function calcROI() {
   const industry = parseFloat(document.getElementById('roiIndustry').value) || 1;
-  const hours    = Math.max(0, parseFloat(document.getElementById('roiHours').value)   || 0);
-  const workers  = Math.max(0, parseFloat(document.getElementById('roiWorkers').value) || 0);
-  const rate     = Math.max(0, parseFloat(document.getElementById('roiRate').value)    || 0);
+  // Clamp to the HTML min/max so unrealistic inputs can't produce misleading figures
+  const hours    = Math.min(24,  Math.max(0, parseFloat(document.getElementById('roiHours').value)   || 0));
+  const workers  = Math.min(200, Math.max(0, parseFloat(document.getElementById('roiWorkers').value) || 0));
+  const rate     = Math.min(300, Math.max(0, parseFloat(document.getElementById('roiRate').value)    || 0));
 
   // 22 working days/month · 65 % automation efficiency gain · industry multiplier
   const monthSaving  = hours * workers * rate * 22 * 0.65 * industry;
