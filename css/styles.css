@@ -275,7 +275,8 @@ a   { color:inherit; text-decoration:none; }
   line-height: 1.04;
   letter-spacing: -2.5px;
 }
-.hero__line .sc { color: var(--red); opacity: .5; }
+/* Line 1 starts hidden — JS typewriter reveals it */
+#scrambleLine { opacity: 0; }
 
 .hero__line--solid  { color: var(--white); }
 .hero__line--outline {
@@ -393,7 +394,7 @@ a   { color:inherit; text-decoration:none; }
   font-size: .7rem;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: #3a3a48;
+  color: #58586c;
 }
 .stat__divider {
   width: 1px; height: 36px;
@@ -424,7 +425,7 @@ a   { color:inherit; text-decoration:none; }
 .marquee__item {
   font-size: .75rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .13em;
-  color: #303040;
+  color: #525268;
   white-space: nowrap;
 }
 .marquee__sep { color: var(--red); opacity: .4; font-size: .55rem; }
@@ -472,12 +473,12 @@ a   { color:inherit; text-decoration:none; }
   font-weight: 900;
   line-height: 1;
   letter-spacing: -3px;
-  color: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.18);
   user-select: none;
   margin-top: -.35em;
   transition: color .3s;
 }
-.process__item:hover .process__num { color: rgba(224,48,48,.12); }
+.process__item:hover .process__num { color: rgba(224,48,48,.45); }
 
 .process__title {
   font-size: 1.4rem; font-weight: 800;
@@ -503,7 +504,7 @@ a   { color:inherit; text-decoration:none; }
   margin-bottom: 2.5rem; gap: 1rem; flex-wrap: wrap;
 }
 .projects__hint {
-  font-size: .83rem; color: #333345;
+  font-size: .83rem; color: #545468;
   align-self: flex-end; padding-bottom: .2rem;
 }
 
@@ -591,6 +592,18 @@ a   { color:inherit; text-decoration:none; }
 .bento__card--wide .bento__title { font-size: clamp(1.1rem,2.2vw,1.5rem); }
 .bento__card:hover .bento__title { transform: translateY(0); }
 
+.bento__desc {
+  font-size: .76rem;
+  color: rgba(255,255,255,.5);
+  line-height: 1.55;
+  max-width: 48ch;
+  margin-top: .35rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity .3s var(--ease) .08s, transform .3s var(--ease) .08s;
+}
+.bento__card:hover .bento__desc { opacity: 1; transform: translateY(0); }
+
 .bento__open {
   display: flex; align-items: center; justify-content: center;
   width: 34px; height: 34px;
@@ -675,7 +688,7 @@ a   { color:inherit; text-decoration:none; }
 }
 .footer__social a:hover { color: var(--white); }
 .footer__social svg { width:17px; height:17px; flex-shrink:0; }
-.footer__copy { font-size:.75rem; color:#1e1e28; }
+.footer__copy { font-size:.75rem; color:#3e3e52; }
 
 /* =============================================
    MODAL
@@ -739,14 +752,15 @@ a   { color:inherit; text-decoration:none; }
   color:var(--cyan); margin-bottom:.25rem;
 }
 .modal__title { font-size:1.1rem; font-weight:700; color:var(--white); }
-.modal__tags  { font-size:.77rem; color:var(--text); margin-top:.3rem; }
+.modal__desc  { font-size:.88rem; color:var(--text); line-height:1.7; margin-top:.45rem; }
+.modal__tags  { font-size:.75rem; color:#525268; margin-top:.5rem; letter-spacing:.02em; }
 
 /* =============================================
    HERO COMPAT NOTE
    ============================================= */
 .hero__compat-note {
   font-size: .76rem;
-  color: #3a3a48;
+  color: #525268;
   margin-top: -.15rem;
 }
 
@@ -843,7 +857,7 @@ a   { color:inherit; text-decoration:none; }
 .roi__copy-cta { align-self: flex-start; }
 .roi__copy-note {
   font-size: .76rem;
-  color: #3a3a48;
+  color: #525268;
 }
 
 .roi__card {
@@ -933,7 +947,7 @@ select.roi__input option { background: #0D0D11; }
 }
 .roi__note {
   font-size: .75rem;
-  color: #3a3a48;
+  color: #525268;
   line-height: 1.6;
 }
 
@@ -1099,6 +1113,7 @@ select.roi__input option { background: #0D0D11; }
   .bento__tags   { opacity: 1; transform: none; }
   .bento__client { transform: none; }
   .bento__title  { transform: none; }
+  .bento__desc   { opacity: 1; transform: none; }
   .bento__open   { opacity: 1; transform: none; }
 
   /* Hero */
@@ -1184,6 +1199,7 @@ select.roi__input option { background: #0D0D11; }
   .marquee__track { animation: none; }
   [data-animate]  { opacity: 1 !important; transform: none !important; }
   [data-reveal]   { opacity: 1 !important; transform: none !important; }
+  #scrambleLine   { opacity: 1 !important; }
   .hero__visual   { animation: none; }
 }
 

@@ -64,47 +64,19 @@ if (window.matchMedia('(pointer: fine)').matches) {
 }
 
 /* =============================================
-   TEXT SCRAMBLE  (hero headline, line 1)
+   TYPEWRITER  (hero headline, line 1)
    ============================================= */
-class TextScramble {
-  constructor(el) {
-    this.el    = el;
-    this.chars = '01-=/\\[]{}+*#@$%?!';
-    this._update = this._update.bind(this);
-  }
-  run(text) {
-    const len = text.length;
-    this._queue = Array.from({ length: len }, (_, i) => ({
-      to:    text[i],
-      start: Math.floor(Math.random() * 10),
-      end:   Math.floor(Math.random() * 10) + 14,
-      char:  '',
-    }));
-    this._frame = 0;
-    cancelAnimationFrame(this._raf);
-    this._raf = requestAnimationFrame(this._update);
-  }
-  _update() {
-    let out = '', done = 0;
-    for (const item of this._queue) {
-      if (this._frame >= item.end) {
-        done++;
-        out += item.to;
-      } else if (this._frame >= item.start) {
-        if (!item.char || Math.random() < 0.28) {
-          item.char = this.chars[Math.floor(Math.random() * this.chars.length)];
-        }
-        out += `<span class="sc">${item.char}</span>`;
-      } else {
-        out += item.to === ' ' ? ' ' : '&nbsp;';
-      }
-    }
-    this.el.innerHTML = out;
-    if (done < this._queue.length) {
-      this._frame++;
-      this._raf = requestAnimationFrame(this._update);
+function typewriter(el, text, speed) {
+  el.textContent = '';
+  el.style.opacity = '1';
+  var i = 0;
+  function tick() {
+    if (i < text.length) {
+      el.textContent += text[i++];
+      setTimeout(tick, speed);
     }
   }
+  setTimeout(tick, 120);
 }
 
 /* =============================================
@@ -119,13 +91,16 @@ function revealHero() {
     setTimeout(() => el.classList.add('revealed'), i * 140);
   });
 
-  // Scramble the first headline line
+  // Typewriter on the first headline line
   if (scrambleEl) {
     const original = scrambleEl.textContent.trim();
-    scrambleEl.innerHTML = '';
-    setTimeout(() => {
-      new TextScramble(scrambleEl).run(original);
-    }, 80);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      scrambleEl.textContent = original;
+      scrambleEl.style.opacity = '1';
+    } else {
+      scrambleEl.textContent = '';
+      typewriter(scrambleEl, original, 48);
+    }
   }
 }
 
@@ -246,6 +221,7 @@ const modal       = document.getElementById('modal');
 const modalMedia  = document.getElementById('modalMedia');
 const modalTitle  = document.getElementById('modalTitle');
 const modalClient = document.getElementById('modalClient');
+const modalDesc   = document.getElementById('modalDesc');
 const modalTags   = document.getElementById('modalTags');
 const modalClose  = document.getElementById('modalClose');
 const backdrop    = modal.querySelector('.modal__backdrop');
@@ -271,9 +247,10 @@ function buildYTIframe(vid, title) {
 }
 
 function openModal(card) {
-  modalClient.textContent = card.dataset.client || '';
-  modalTitle.textContent  = card.dataset.title  || '';
-  modalTags.textContent   = card.dataset.tags   || '';
+  modalClient.textContent = card.dataset.client      || '';
+  modalTitle.textContent  = card.dataset.title       || '';
+  modalDesc.textContent   = card.dataset.description || '';
+  modalTags.textContent   = card.dataset.tags        || '';
 
   modalMedia.innerHTML = '';  // clear previous content safely
   const vid = (card.dataset.video || '').trim();

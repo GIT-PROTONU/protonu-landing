@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="PROTONU — Robotics prototyping, process automation and embedded systems consultancy. Based in the Netherlands." />
+  <meta name="description" content="PROTONU designs and builds robotics prototypes, process-automation systems and embedded electronics for manufacturers and tech companies in the Netherlands. Book a free 30-min audit." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="author" content="Ibrahim Elfaramawy" />
+  <meta name="geo.region" content="NL" />
+  <meta name="geo.placename" content="Netherlands" />
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#08080A" />
-  <title>PROTONU — Innovate. Automate. Succeed.</title>
+  <title>PROTONU | Robotics & Process Automation Consultancy — Netherlands</title>
 
   <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy" content="
@@ -32,16 +36,26 @@
   <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
   <!-- Open Graph -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://protonu.com/" />
-  <meta property="og:title"       content="PROTONU — Robotics & Process Automation" />
-  <meta property="og:description" content="From robotics prototypes to full process automation. PROTONU helps companies in hardware, software and embedded systems move faster, cut costs, and scale with confidence." />
-  <meta property="og:image"       content="https://protonu.com/assets/images/img.jpg" />
-  <meta property="og:locale"      content="en_NL" />
-  <meta name="twitter:card"       content="summary_large_image" />
-  <meta name="twitter:title"      content="PROTONU — Robotics & Process Automation" />
-  <meta name="twitter:description" content="From robotics prototypes to full process automation — based in the Netherlands." />
-  <meta name="twitter:image"      content="https://protonu.com/assets/images/img.jpg" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:url"           content="https://protonu.com/" />
+  <meta property="og:site_name"     content="PROTONU" />
+  <meta property="og:title"         content="PROTONU | Robotics & Process Automation — Netherlands" />
+  <meta property="og:description"   content="From robotics prototypes to full process automation. PROTONU helps manufacturers and tech companies automate manual work, cut costs and scale with confidence." />
+  <meta property="og:image"         content="https://protonu.com/assets/images/img.jpg" />
+  <meta property="og:image:width"   content="1200" />
+  <meta property="og:image:height"  content="630" />
+  <meta property="og:image:alt"     content="Ibrahim Elfaramawy, Owner of PROTONU robotics and automation consultancy" />
+  <meta property="og:locale"        content="en_NL" />
+  <meta name="twitter:card"         content="summary_large_image" />
+  <meta name="twitter:site"         content="@protonu" />
+  <meta name="twitter:title"        content="PROTONU | Robotics & Process Automation — Netherlands" />
+  <meta name="twitter:description"  content="Robotics prototyping, process automation and embedded systems consultancy based in the Netherlands. Book a free 30-min audit." />
+  <meta name="twitter:image"        content="https://protonu.com/assets/images/img.jpg" />
+  <meta name="twitter:image:alt"    content="Ibrahim Elfaramawy, Owner of PROTONU" />
+
+  <!-- hreflang (single language) -->
+  <link rel="alternate" hreflang="en"        href="https://protonu.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://protonu.com/" />
 
   <!-- DNS prefetch / preconnect for external services -->
   <link rel="preconnect"    href="https://calendly.com" />
@@ -60,28 +74,163 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "PROTONU",
-    "description": "Robotics prototyping, process automation and embedded systems consultancy based in the Netherlands.",
-    "url": "https://protonu.com",
-    "logo": "https://protonu.com/assets/images/favicon.png",
-    "image": "https://protonu.com/assets/images/img.jpg",
-    "areaServed": {
-      "@type": "Country",
-      "name": "Netherlands"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "NL"
-    },
-    "identifier": "71072853",
-    "sameAs": ["https://www.linkedin.com/in/elfaramawy/"],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "sales",
-      "url": "https://calendly.com/ibrahim-protonu"
-    },
-    "knowsAbout": ["Robotics", "Process Automation", "Embedded Systems", "PCB Design", "RoboDK", "ROS"]
+    "@graph": [
+      {
+        "@type": ["ProfessionalService", "LocalBusiness"],
+        "@id": "https://protonu.com/#business",
+        "name": "PROTONU",
+        "alternateName": "Protonu Engineering",
+        "description": "Robotics prototyping, process automation and embedded systems consultancy based in the Netherlands. We help manufacturing, logistics and automotive companies automate manual processes, cut labour costs and scale operations.",
+        "url": "https://protonu.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://protonu.com/assets/images/favicon.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://protonu.com/assets/images/img.jpg",
+          "width": 560,
+          "height": 560
+        },
+        "founder": { "@id": "https://protonu.com/#ibrahim" },
+        "employee": { "@id": "https://protonu.com/#ibrahim" },
+        "areaServed": [
+          { "@type": "Country", "name": "Netherlands" },
+          { "@type": "Continent", "name": "Europe" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "NL"
+        },
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "KVK",
+          "value": "71072853"
+        },
+        "sameAs": ["https://www.linkedin.com/in/elfaramawy/"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "availableLanguage": ["English", "Dutch"],
+          "url": "https://calendly.com/ibrahim-protonu"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Robotics & Automation Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Robotics Prototyping",
+                "description": "End-to-end development of robotic prototypes — from concept and simulation in RoboDK to physical build and integration testing.",
+                "provider": { "@id": "https://protonu.com/#business" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Process Automation",
+                "description": "Automating manual manufacturing and logistics workflows using PLC, SCADA, OPC-UA, Modbus TCP and custom software integrations.",
+                "provider": { "@id": "https://protonu.com/#business" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Embedded Systems & PCB Design",
+                "description": "Custom embedded firmware, hardware design and PCB layout for industrial and consumer electronics applications.",
+                "provider": { "@id": "https://protonu.com/#business" }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://protonu.com/#ibrahim",
+        "name": "Ibrahim Elfaramawy",
+        "givenName": "Ibrahim",
+        "familyName": "Elfaramawy",
+        "jobTitle": "Owner & Lead Engineer",
+        "worksFor": { "@id": "https://protonu.com/#business" },
+        "knowsAbout": ["Robotics", "Process Automation", "Embedded Systems", "PCB Design", "RoboDK", "ROS", "ROS 2", "PLC Programming", "SCADA"],
+        "sameAs": ["https://www.linkedin.com/in/elfaramawy/"],
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://protonu.com/assets/images/img.jpg"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://protonu.com/#website",
+        "url": "https://protonu.com",
+        "name": "PROTONU",
+        "publisher": { "@id": "https://protonu.com/#business" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://protonu.com/#projects",
+        "name": "Case Studies",
+        "description": "Selected robotics and automation projects delivered by PROTONU",
+        "numberOfItems": 4,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "Cooking Robot, bon Appétit!",
+              "description": "Programmed a multi-axis robotic arm to prepare and plate restaurant meals autonomously, eliminating manual bottlenecks in a high-throughput commercial kitchen.",
+              "keywords": "Robotics, Hardware, Software, Food Automation",
+              "image": "https://protonu.com/assets/images/davincni.jpg",
+              "creator": { "@id": "https://protonu.com/#business" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "Automated EV Charging",
+              "description": "Developed a RoboDK-simulated robotic system that autonomously locates and connects EV charge ports without driver interaction, cutting charge initiation time to zero.",
+              "keywords": "Robotics, RoboDK, EV Charging, Automation, Automotive",
+              "image": "https://protonu.com/assets/images/robodk.png",
+              "creator": { "@id": "https://protonu.com/#business" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "DJ Controller for a World Class DJ",
+              "description": "Designed a custom PCB and embedded firmware for a professional DJ controller used in live performances, combining precise tactile response with robust signal integrity.",
+              "keywords": "Hardware, Embedded Systems, PCB Design, Electronics",
+              "image": "https://protonu.com/assets/images/hollt.jpg",
+              "creator": { "@id": "https://protonu.com/#business" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "CreativeWork",
+              "name": "Computer Generated Contracts",
+              "description": "Built an AI-driven pipeline that generates legally compliant contracts automatically from structured data, reducing document turnaround from days to seconds.",
+              "keywords": "Software, AI, Process Automation, Legal Tech",
+              "image": "https://protonu.com/assets/images/pa.jpg",
+              "creator": { "@id": "https://protonu.com/#business" }
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -113,6 +262,8 @@
       Schedule a Deep-Dive
     </a>
   </header>
+
+  <main id="main-content">
 
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="hero">
@@ -367,13 +518,15 @@
                data-image="assets/images/davincni.jpg"
                data-title="Cooking Robot, bon Appétit!"
                data-client="Davinci Kitchen"
-               data-tags="Robotics · Hardware · Software">
+               data-tags="Robotics · Hardware · Software"
+               data-description="Programmed a multi-axis robotic arm to prepare and plate restaurant meals autonomously, eliminating manual bottlenecks in a high-throughput commercial kitchen.">
         <div class="bento__bg" data-bg="assets/images/davincni.jpg"></div>
         <div class="bento__index" aria-hidden="true">01</div>
         <div class="bento__overlay">
           <div class="bento__tags">Robotics &middot; Hardware &middot; Software</div>
           <span class="bento__client">Davinci Kitchen</span>
           <h3 class="bento__title">Cooking Robot, bon Appétit!</h3>
+          <p class="bento__desc">Programmed a multi-axis robotic arm to prepare and plate restaurant meals autonomously, eliminating manual bottlenecks in a high-throughput commercial kitchen.</p>
           <button class="bento__open" aria-label="View project details">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
@@ -384,13 +537,15 @@
                data-image="assets/images/robodk.png"
                data-title="Automated EV Charging"
                data-client="Kopernikus Automotive"
-               data-tags="Robotics · RoboDK · Automation">
+               data-tags="Robotics · RoboDK · Automation"
+               data-description="Developed a RoboDK-simulated robotic system that autonomously locates and connects EV charge ports without driver interaction, cutting charge initiation time to zero.">
         <div class="bento__bg" data-bg="assets/images/robodk.png"></div>
         <div class="bento__index" aria-hidden="true">02</div>
         <div class="bento__overlay">
           <div class="bento__tags">Robotics &middot; RoboDK &middot; Automation</div>
           <span class="bento__client">Kopernikus Automotive</span>
           <h3 class="bento__title">Automated EV Charging</h3>
+          <p class="bento__desc">Developed a RoboDK-simulated robotic system that autonomously locates and connects EV charge ports without driver interaction, cutting charge initiation time to zero.</p>
           <button class="bento__open" aria-label="View project details">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
@@ -401,13 +556,15 @@
                data-image="assets/images/hollt.jpg"
                data-title="DJ Controller for a World Class DJ"
                data-client="HOLLT"
-               data-tags="Hardware · Embedded Systems · PCB">
+               data-tags="Hardware · Embedded Systems · PCB"
+               data-description="Designed a custom PCB and embedded firmware for a professional DJ controller used in live performances, combining precise tactile response with robust signal integrity.">
         <div class="bento__bg" data-bg="assets/images/hollt.jpg"></div>
         <div class="bento__index" aria-hidden="true">03</div>
         <div class="bento__overlay">
           <div class="bento__tags">Hardware &middot; Embedded &middot; PCB</div>
           <span class="bento__client">HOLLT</span>
           <h3 class="bento__title">DJ Controller for a World Class DJ</h3>
+          <p class="bento__desc">Designed a custom PCB and embedded firmware for a professional DJ controller used in live performances, combining precise tactile response with robust signal integrity.</p>
           <button class="bento__open" aria-label="View project details">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
@@ -418,13 +575,15 @@
                data-image="assets/images/pa.jpg"
                data-title="Computer Generated Contracts"
                data-client="Privacy Assistant"
-               data-tags="Software · AI · Process Automation">
+               data-tags="Software · AI · Process Automation"
+               data-description="Built an AI-driven pipeline that generates legally compliant contracts automatically from structured data, reducing document turnaround from days to seconds.">
         <div class="bento__bg" data-bg="assets/images/pa.jpg"></div>
         <div class="bento__index" aria-hidden="true">04</div>
         <div class="bento__overlay">
           <div class="bento__tags">Software &middot; AI &middot; Process Automation</div>
           <span class="bento__client">Privacy Assistant</span>
           <h3 class="bento__title">Computer Generated Contracts</h3>
+          <p class="bento__desc">Built an AI-driven pipeline that generates legally compliant contracts automatically from structured data, reducing document turnaround from days to seconds.</p>
           <button class="bento__open" aria-label="View project details">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
@@ -558,6 +717,8 @@
     </div>
   </section>
 
+  </main><!-- /#main-content -->
+
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="footer__social">
@@ -591,8 +752,9 @@
       <div class="modal__media" id="modalMedia"></div>
       <div class="modal__info">
         <p class="modal__client" id="modalClient"></p>
-        <h3 class="modal__title"  id="modalTitle"></h3>
-        <p class="modal__tags"    id="modalTags"></p>
+        <h3 class="modal__title" id="modalTitle"></h3>
+        <p class="modal__desc"   id="modalDesc"></p>
+        <p class="modal__tags"   id="modalTags"></p>
       </div>
     </div>
   </div>
