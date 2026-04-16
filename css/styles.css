@@ -514,7 +514,7 @@ a   { color:inherit; text-decoration:none; }
 .bento {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  grid-template-rows: 320px 320px;
+  grid-template-rows: 320px 320px 320px 320px 320px;
   gap: 10px;
 }
 .bento__card--wide { grid-column: span 2; }
@@ -751,9 +751,14 @@ a   { color:inherit; text-decoration:none; }
   text-transform:uppercase; letter-spacing:.1em;
   color:var(--cyan); margin-bottom:.25rem;
 }
+.modal__client--linked { cursor:pointer; text-decoration:none; }
+.modal__client--linked:hover { color:var(--red); }
 .modal__title { font-size:1.1rem; font-weight:700; color:var(--white); }
 .modal__desc  { font-size:.88rem; color:var(--text); line-height:1.7; margin-top:.45rem; }
 .modal__tags  { font-size:.75rem; color:#525268; margin-top:.5rem; letter-spacing:.02em; }
+.modal__link  { display:inline-flex; align-items:center; gap:.35rem; margin-top:.85rem; font-size:.8rem; font-weight:600; color:var(--red); text-decoration:none; letter-spacing:.02em; transition:opacity .2s; }
+.modal__link:hover { opacity:.75; }
+.modal__link svg { width:11px; height:11px; flex-shrink:0; }
 
 /* =============================================
    HERO COMPAT NOTE

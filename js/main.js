@@ -223,6 +223,7 @@ const modalTitle  = document.getElementById('modalTitle');
 const modalClient = document.getElementById('modalClient');
 const modalDesc   = document.getElementById('modalDesc');
 const modalTags   = document.getElementById('modalTags');
+const modalLink   = document.getElementById('modalLink');
 const modalClose  = document.getElementById('modalClose');
 const backdrop    = modal.querySelector('.modal__backdrop');
 
@@ -251,6 +252,19 @@ function openModal(card) {
   modalTitle.textContent  = card.dataset.title       || '';
   modalDesc.textContent   = card.dataset.description || '';
   modalTags.textContent   = card.dataset.tags        || '';
+
+  const link = (card.dataset.link || '').trim();
+  if (link) {
+    modalLink.href         = link;
+    modalLink.hidden       = false;
+    modalClient.href       = link;
+    modalClient.classList.add('modal__client--linked');
+  } else {
+    modalLink.href         = '#';
+    modalLink.hidden       = true;
+    modalClient.removeAttribute('href');
+    modalClient.classList.remove('modal__client--linked');
+  }
 
   modalMedia.innerHTML = '';  // clear previous content safely
   const vid = (card.dataset.video || '').trim();
