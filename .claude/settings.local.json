@@ -17,7 +17,8 @@
       "Bash(git commit -m ':*)",
       "WebSearch",
       "Bash(git push:*)",
-      "WebFetch(domain:jaconir.online)"
+      "WebFetch(domain:jaconir.online)",
+      "Bash(git commit:*)"
     ]
   }
 }
