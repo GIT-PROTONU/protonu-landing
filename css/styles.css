@@ -742,6 +742,21 @@ a   { color:inherit; text-decoration:none; }
 .modal__media .video-wrap iframe {
   position:absolute; inset:0; width:100%; height:100%; border:none;
 }
+.modal__media .video-wrap--fallback img {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+}
+.modal__media .yt-fallback-link {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.35); transition:background .2s;
+}
+.modal__media .yt-fallback-link:hover { background:rgba(0,0,0,.15); }
+.modal__media .yt-play-icon {
+  display:block; width:0; height:0;
+  border-top:24px solid transparent;
+  border-bottom:24px solid transparent;
+  border-left:44px solid #fff;
+  filter:drop-shadow(0 2px 8px rgba(0,0,0,.5));
+}
 .modal__info {
   padding:1.25rem 1.5rem;
   border-top:1px solid var(--border);

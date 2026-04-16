@@ -232,7 +232,31 @@ function isSafeYTId(id) {
   return /^[\w-]{1,20}$/.test(id);
 }
 
+// Build YouTube thumbnail fallback link (for videos with embedding disabled)
+function buildYTThumbnail(vid, title) {
+  const wrap = document.createElement('div');
+  wrap.className = 'video-wrap video-wrap--fallback';
+  const safeVid = encodeURIComponent(vid);
+  const img = document.createElement('img');
+  img.src = `https://img.youtube.com/vi/${safeVid}/hqdefault.jpg`;
+  img.alt = title || 'Video thumbnail';
+  const link = document.createElement('a');
+  link.href = `https://www.youtube.com/watch?v=${safeVid}`;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.className = 'yt-fallback-link';
+  link.setAttribute('aria-label', 'Watch on YouTube');
+  const icon = document.createElement('span');
+  icon.className = 'yt-play-icon';
+  icon.setAttribute('aria-hidden', 'true');
+  link.appendChild(icon);
+  wrap.appendChild(img);
+  wrap.appendChild(link);
+  return wrap;
+}
+
 // Build YouTube iframe via DOM — never innerHTML — to prevent XSS via data attributes
+// Falls back to a clickable thumbnail if embedding is blocked (e.g. Error 153)
 function buildYTIframe(vid, title) {
   const wrap = document.createElement('div');
   wrap.className = 'video-wrap';
@@ -243,6 +267,9 @@ function buildYTIframe(vid, title) {
   iframe.allowFullscreen = true;
   iframe.title = title || '';
   iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation allow-popups');
+  iframe.addEventListener('error', () => {
+    wrap.replaceWith(buildYTThumbnail(vid, title));
+  });
   wrap.appendChild(iframe);
   return wrap;
 }
@@ -269,7 +296,11 @@ function openModal(card) {
   modalMedia.innerHTML = '';  // clear previous content safely
   const vid = (card.dataset.video || '').trim();
   if (vid && isSafeYTId(vid)) {
-    modalMedia.appendChild(buildYTIframe(vid, card.dataset.title || ''));
+    const canEmbed = card.dataset.videoEmbed !== 'false';
+    modalMedia.appendChild(
+      canEmbed ? buildYTIframe(vid, card.dataset.title || '')
+               : buildYTThumbnail(vid, card.dataset.title || '')
+    );
   } else if (card.dataset.image) {
     const img = document.createElement('img');
     img.src = card.dataset.image;
