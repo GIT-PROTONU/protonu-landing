@@ -19,51 +19,6 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* =============================================
-   CUSTOM CURSOR  (fine pointer devices only)
-   ============================================= */
-if (window.matchMedia('(pointer: fine)').matches) {
-  document.body.classList.add('js-cursor');
-
-  const dot  = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-
-  let mx = window.innerWidth / 2,  my = window.innerHeight / 2;
-  let rx = mx, ry = my;
-
-  // Dot follows instantly
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top  = my + 'px';
-  }, { passive: true });
-
-  // Ring follows with smooth lag — idles when settled to save CPU
-  let ringRaf = null;
-  function animateRing() {
-    const dx = mx - rx;
-    const dy = my - ry;
-    rx += dx * 0.13;
-    ry += dy * 0.13;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
-      ringRaf = requestAnimationFrame(animateRing);
-    } else {
-      ringRaf = null;
-    }
-  }
-  document.addEventListener('mousemove', () => {
-    if (!ringRaf) ringRaf = requestAnimationFrame(animateRing);
-  }, { passive: true });
-
-  // Grow ring on interactive elements
-  document.querySelectorAll('a, button, [role="button"]').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
-  });
-}
-
-/* =============================================
    TYPEWRITER  (hero headline, line 1)
    ============================================= */
 function typewriter(el, text, speed) {
@@ -185,28 +140,12 @@ const bgObs = new IntersectionObserver(entries => {
 document.querySelectorAll('[data-bg]').forEach(el => bgObs.observe(el));
 
 /* =============================================
-   3-D CARD TILT  (bento cards)
+   PLAY BADGES  (cards with data-video or data-instagram)
    ============================================= */
 document.querySelectorAll('.bento__card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width  - 0.5;
-    const y = (e.clientY - r.top)  / r.height - 0.5;
-    card.style.transform    = `perspective(1000px) rotateX(${-y*6}deg) rotateY(${x*6}deg) scale(1.02)`;
-    card.style.transition   = 'transform 0.06s ease, border-color .25s, box-shadow .25s';
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform  = '';
-    card.style.transition = 'transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94), opacity .55s, border-color .25s, box-shadow .25s';
-  });
-});
-
-/* =============================================
-   PLAY BADGES  (cards with data-video)
-   ============================================= */
-document.querySelectorAll('.bento__card[data-video]').forEach(card => {
-  const vid = (card.dataset.video || '').trim();
-  if (!vid) return;
+  const vid   = (card.dataset.video     || '').trim();
+  const igId  = (card.dataset.instagram || '').trim();
+  if (!vid && !igId) return;
   const badge = document.createElement('div');
   badge.className = 'bento__play-badge';
   badge.setAttribute('aria-hidden', 'true');
@@ -230,6 +169,26 @@ const backdrop    = modal.querySelector('.modal__backdrop');
 // Allow only the standard YouTube video ID charset (alphanumeric, dash, underscore)
 function isSafeYTId(id) {
   return /^[\w-]{1,20}$/.test(id);
+}
+
+// Instagram shortcodes use the same charset; they're longer for Reels
+function isSafeIGId(id) {
+  return /^[\w-]{1,30}$/.test(id);
+}
+
+// Build Instagram Reel/Post iframe embed (vertical format)
+function buildIGEmbed(id, title) {
+  const wrap = document.createElement('div');
+  wrap.className = 'video-wrap video-wrap--instagram';
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.instagram.com/reel/${encodeURIComponent(id)}/embed`;
+  iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+  iframe.allowFullscreen = true;
+  iframe.scrolling = 'no';
+  iframe.title = title || '';
+  iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+  wrap.appendChild(iframe);
+  return wrap;
 }
 
 // Build YouTube thumbnail fallback link (for videos with embedding disabled)
@@ -294,8 +253,11 @@ function openModal(card) {
   }
 
   modalMedia.innerHTML = '';  // clear previous content safely
-  const vid = (card.dataset.video || '').trim();
-  if (vid && isSafeYTId(vid)) {
+  const vid  = (card.dataset.video     || '').trim();
+  const igId = (card.dataset.instagram || '').trim();
+  if (igId && isSafeIGId(igId)) {
+    modalMedia.appendChild(buildIGEmbed(igId, card.dataset.title || ''));
+  } else if (vid && isSafeYTId(vid)) {
     const canEmbed = card.dataset.videoEmbed !== 'false';
     modalMedia.appendChild(
       canEmbed ? buildYTIframe(vid, card.dataset.title || '')
@@ -305,7 +267,18 @@ function openModal(card) {
     const img = document.createElement('img');
     img.src = card.dataset.image;
     img.alt = card.dataset.title || '';
-    modalMedia.appendChild(img);
+    const imgLink = (card.dataset.imageLink || '').trim();
+    if (imgLink) {
+      const a = document.createElement('a');
+      a.href = imgLink;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.className = 'modal__media-link';
+      a.appendChild(img);
+      modalMedia.appendChild(a);
+    } else {
+      modalMedia.appendChild(img);
+    }
   }
   modal.hidden = false;
   document.body.style.overflow = 'hidden';
@@ -344,7 +317,7 @@ if (heroVideoBtn) {
       modalMedia.appendChild(buildYTIframe(vid, 'PROTONU in Action'));
     } else {
       const img = document.createElement('img');
-      img.src = 'assets/images/er.jpg';
+      img.src = 'assets/images/er.webp';
       img.alt = 'PROTONU automation demo';
       modalMedia.appendChild(img);
     }

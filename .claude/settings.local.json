@@ -18,7 +18,9 @@
       "WebSearch",
       "Bash(git push:*)",
       "WebFetch(domain:jaconir.online)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(pip install *)",
+      "Bash(python *)"
     ]
   }
 }
