@@ -8,9 +8,12 @@
 
 /assets/images/*
   Cache-Control: public, max-age=31536000, immutable
+  Expires: Thu, 31 Dec 2037 23:59:59 GMT
 
 /css/*
   Cache-Control: public, max-age=86400, must-revalidate
+  Expires: Thu, 31 Dec 2037 23:59:59 GMT
 
 /js/*
   Cache-Control: public, max-age=86400, must-revalidate
+  Expires: Thu, 31 Dec 2037 23:59:59 GMT
