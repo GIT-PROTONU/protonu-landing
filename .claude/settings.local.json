@@ -20,7 +20,9 @@
       "WebFetch(domain:jaconir.online)",
       "Bash(git commit:*)",
       "Bash(pip install *)",
-      "Bash(python *)"
+      "Bash(python *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)"
     ]
   }
 }
