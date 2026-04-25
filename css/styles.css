@@ -1139,12 +1139,13 @@ select.roi__input option { background: #0C0C15; }
   .bento { grid-template-columns: 1fr; }
   .bento__card--wide { grid-column: span 1; }
   .bento__card { min-height: 240px; }
-  /* Always show card labels on touch */
-  .bento__tags   { opacity: 1; transform: none; }
-  .bento__client { transform: none; }
-  .bento__title  { transform: none; }
-  .bento__desc   { opacity: 1; transform: none; }
-  .bento__open   { opacity: 1; transform: none; }
+  /* Always show card labels on touch; hide desc + arrow to avoid overflow */
+  .bento__tags    { opacity: 1; transform: none; }
+  .bento__client  { transform: none; }
+  .bento__title   { transform: none; }
+  .bento__desc    { display: none; }
+  .bento__open    { display: none; }
+  .bento__overlay { padding-top: 2.5rem; }
 
   .hero__layout { padding: 3rem 1.25rem 2rem; gap: 2.5rem; }
   .hero__photo-wrap > a img { width: 190px; height: 190px; }
