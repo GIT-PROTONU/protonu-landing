@@ -1270,6 +1270,14 @@ select.roi__input option { background: #0C0C15; }
   font-weight: 700;
 }
 
+/* flag-icons size normalisation */
+.lang-switcher .fi {
+  width: 1.25em;
+  height: .94em;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
 /* =============================================
    PERFORMANCE — reduced-motion
    ============================================= */

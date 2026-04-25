@@ -392,7 +392,7 @@
   };
 
   var LANGS = ['en', 'de', 'nl', 'fr', 'es'];
-  var FLAGS = { en: '🇬🇧', de: '🇩🇪', nl: '🇳🇱', fr: '🇫🇷', es: '🇪🇸' };
+  var FLAGS = { en: 'gb', de: 'de', nl: 'nl', fr: 'fr', es: 'es' };
 
   function detectLang() {
     var stored = localStorage.getItem('protonu_lang');
@@ -442,7 +442,9 @@
       var cur2 = trigger.querySelector('.lang-switcher__current');
       if (cur2) cur2.textContent = lang.toUpperCase();
       var flagEl = trigger.querySelector('.lang-switcher__flag');
-      if (flagEl) flagEl.textContent = FLAGS[lang] || '';
+      if (flagEl && FLAGS[lang]) {
+        flagEl.className = 'lang-switcher__flag fi fi-' + FLAGS[lang];
+      }
     }
 
     localStorage.setItem('protonu_lang', lang);

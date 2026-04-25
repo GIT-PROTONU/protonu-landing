@@ -16,7 +16,7 @@
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self';
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
     img-src 'self' https: data:;
     frame-src https://www.youtube.com https://www.instagram.com;
     connect-src 'none';
@@ -61,6 +61,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
 
   <!-- DNS prefetch / preconnect for external services -->
   <link rel="preconnect"    href="https://calendly.com" />
@@ -249,18 +250,18 @@
     <div class="lang-switcher">
       <button class="lang-switcher__trigger" id="langBtn"
               aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
-        <span class="lang-switcher__flag" aria-hidden="true">🇬🇧</span>
+        <span class="lang-switcher__flag fi fi-gb" aria-hidden="true"></span>
         <span class="lang-switcher__current">EN</span>
         <svg viewBox="0 0 10 6" fill="none" aria-hidden="true" width="10" height="6">
           <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>
       <ul class="lang-switcher__menu" id="langMenu" role="listbox" aria-label="Language">
-        <li><button class="lang-switcher__btn active" data-lang="en" role="option" aria-pressed="true"><span aria-hidden="true">🇬🇧</span> English</button></li>
-        <li><button class="lang-switcher__btn" data-lang="de" role="option" aria-pressed="false"><span aria-hidden="true">🇩🇪</span> Deutsch</button></li>
-        <li><button class="lang-switcher__btn" data-lang="nl" role="option" aria-pressed="false"><span aria-hidden="true">🇳🇱</span> Nederlands</button></li>
-        <li><button class="lang-switcher__btn" data-lang="fr" role="option" aria-pressed="false"><span aria-hidden="true">🇫🇷</span> Français</button></li>
-        <li><button class="lang-switcher__btn" data-lang="es" role="option" aria-pressed="false"><span aria-hidden="true">🇪🇸</span> Español</button></li>
+        <li><button class="lang-switcher__btn active" data-lang="en" role="option" aria-pressed="true"><span class="fi fi-gb" aria-hidden="true"></span> English</button></li>
+        <li><button class="lang-switcher__btn" data-lang="de" role="option" aria-pressed="false"><span class="fi fi-de" aria-hidden="true"></span> Deutsch</button></li>
+        <li><button class="lang-switcher__btn" data-lang="nl" role="option" aria-pressed="false"><span class="fi fi-nl" aria-hidden="true"></span> Nederlands</button></li>
+        <li><button class="lang-switcher__btn" data-lang="fr" role="option" aria-pressed="false"><span class="fi fi-fr" aria-hidden="true"></span> Français</button></li>
+        <li><button class="lang-switcher__btn" data-lang="es" role="option" aria-pressed="false"><span class="fi fi-es" aria-hidden="true"></span> Español</button></li>
       </ul>
     </div>
     <a class="btn btn--primary btn--sm" href="https://calendly.com/ibrahim-protonu"
