@@ -1259,6 +1259,7 @@ select.roi__input option { background: #0C0C15; }
   text-align: left;
   cursor: pointer;
   border-radius: 7px;
+  white-space: nowrap;
   transition: background .15s, color .15s;
 }
 .lang-switcher__btn:hover {
