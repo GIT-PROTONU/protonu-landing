@@ -1059,7 +1059,8 @@ select.roi__input option { background: #0C0C15; }
 
 /* --- Mobile (max 720px) --- */
 @media (max-width:720px) {
-  .nav { padding:0 1.5rem; }
+  .nav { padding:0 1.5rem; gap: .75rem; }
+  .nav__logo { margin-right: auto; }
   .nav__links { display:none; }
   .btn--sm { font-size:.72rem; padding:.4em .8em; letter-spacing:0; }
 
