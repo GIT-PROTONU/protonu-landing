@@ -241,13 +241,29 @@
       <span class="nav__logo-box">PROTONU</span>
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="#process">Process</a>
-      <a href="#projects">Projects</a>
-      <a href="#roi">ROI Estimate</a>
-      <a href="#contact">Contact</a>
+      <a href="#process" data-i18n="nav_process">Process</a>
+      <a href="#projects" data-i18n="nav_projects">Projects</a>
+      <a href="#roi" data-i18n="nav_roi">ROI Estimate</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
     </nav>
+    <div class="lang-switcher">
+      <button class="lang-switcher__trigger" id="langBtn"
+              aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+        <span class="lang-switcher__current">EN</span>
+        <svg viewBox="0 0 10 6" fill="none" aria-hidden="true" width="10" height="6">
+          <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <ul class="lang-switcher__menu" id="langMenu" role="listbox" aria-label="Language">
+        <li><button class="lang-switcher__btn active" data-lang="en" role="option" aria-pressed="true">English</button></li>
+        <li><button class="lang-switcher__btn" data-lang="de" role="option" aria-pressed="false">Deutsch</button></li>
+        <li><button class="lang-switcher__btn" data-lang="nl" role="option" aria-pressed="false">Nederlands</button></li>
+        <li><button class="lang-switcher__btn" data-lang="fr" role="option" aria-pressed="false">Français</button></li>
+        <li><button class="lang-switcher__btn" data-lang="es" role="option" aria-pressed="false">Español</button></li>
+      </ul>
+    </div>
     <a class="btn btn--primary btn--sm" href="https://calendly.com/ibrahim-protonu"
-       target="_blank" rel="noopener noreferrer" data-magnetic>
+       target="_blank" rel="noopener noreferrer" data-magnetic data-i18n="nav_cta">
       Schedule a Deep-Dive
     </a>
   </header>
@@ -265,35 +281,27 @@
 
       <!-- Left: copy -->
       <div class="hero__text">
-        <p class="eyebrow" data-reveal>Robotics &amp; Process Automation</p>
+        <p class="eyebrow" data-reveal data-i18n="hero_eyebrow">Robotics &amp; Process Automation</p>
 
         <h1 class="hero__headline">
-          <span class="hero__line hero__line--solid" id="scrambleLine">Turn Manual Work</span>
-          <span class="hero__line hero__line--outline" data-reveal>Into Automated</span>
-          <span class="hero__line hero__line--accent" data-reveal>Results.</span>
+          <span class="hero__line hero__line--solid" id="scrambleLine" data-i18n="hero_line1">Turn Manual Work</span>
+          <span class="hero__line hero__line--outline" data-reveal data-i18n="hero_line2">Into Automated</span>
+          <span class="hero__line hero__line--accent" data-reveal data-i18n="hero_line3">Results.</span>
         </h1>
 
-        <p class="hero__sub" data-reveal>
-          From robotics prototypes to full process automation &mdash; PROTONU helps
+        <p class="hero__sub" data-reveal data-i18n="hero_sub">
+          From robotics prototypes to full process automation — PROTONU helps
           companies in hardware, software and embedded systems move faster,
           cut costs, and scale with confidence.
         </p>
 
         <div class="hero__actions" data-reveal>
           <a class="btn btn--primary" href="https://calendly.com/ibrahim-protonu"
-             target="_blank" rel="noopener noreferrer" data-magnetic>
+             target="_blank" rel="noopener noreferrer" data-magnetic data-i18n="hero_cta">
             Request a System Audit
           </a>
-          <!-- Add your YouTube video ID to data-hero-video to enable the demo modal -->
-          <button class="btn btn--ghost-white hero__video-btn"
-                  data-hero-video=""
-                  data-magnetic
-                  aria-label="Watch a demonstration video">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            Watch in Action
-          </button>
         </div>
-        <p class="hero__compat-note" data-reveal>
+        <p class="hero__compat-note" data-reveal data-i18n-html="hero_compat">
           No hardware overhaul required &middot; Integrates with existing PLC &amp; SCADA systems
         </p>
       </div>
@@ -331,17 +339,17 @@
     <div class="hero__stats" data-reveal>
       <div class="stat">
         <span class="stat__num" data-count="9">0</span>
-        <span class="stat__label">Projects Delivered</span>
+        <span class="stat__label" data-i18n="stat_projects">Projects Delivered</span>
       </div>
       <div class="stat__divider" aria-hidden="true"></div>
       <div class="stat">
         <span class="stat__num" data-count="8">0</span>
-        <span class="stat__label">Industries</span>
+        <span class="stat__label" data-i18n="stat_industries">Industries</span>
       </div>
       <div class="stat__divider" aria-hidden="true"></div>
       <div class="stat">
         <span class="stat__num" data-year-since="2018">0</span>
-        <span class="stat__label">Years Active</span>
+        <span class="stat__label" data-i18n="stat_years">Years Active</span>
       </div>
       <div class="stat__divider" aria-hidden="true"></div>
       <div class="stat">
@@ -415,8 +423,8 @@
   <section class="proof" id="proof" aria-labelledby="proof-title">
     <div class="proof__inner">
       <div class="proof__header">
-        <p class="eyebrow">Client Results</p>
-        <h2 class="section-title" id="proof-title">Real results,<br>in production.</h2>
+        <p class="eyebrow" data-i18n="proof_eyebrow">Client Results</p>
+        <h2 class="section-title" id="proof-title" data-i18n-html="proof_title">Real results,<br>in production.</h2>
       </div>
       <div class="proof__quotes">
 
@@ -424,7 +432,7 @@
           <svg class="proof__quote-mark" viewBox="0 0 32 24" aria-hidden="true">
             <path d="M0 24V14.4C0 10.08 1.28 6.56 3.84 3.84 6.4 1.12 9.92 0 14.4 0v4.8c-2.88 0-5.12.8-6.72 2.4C6.08 8.8 5.28 11.2 5.28 14.4H9.6V24H0zm17.6 0V14.4c0-4.32 1.28-7.84 3.84-10.56C24 1.12 27.52 0 32 0v4.8c-2.88 0-5.12.8-6.72 2.4-1.6 1.6-2.4 4-2.4 7.2h4.32V24H17.6z" fill="currentColor"/>
           </svg>
-          <p class="proof__quote-text">"Ibrahim joined as CTO and immediately brought structure to what was a very complex engineering challenge. He built the team, designed the electronics architecture, and kept development on track from first prototype through to shareholder demos."</p>
+          <p class="proof__quote-text" data-i18n="proof_q1_text">"Ibrahim joined as CTO and immediately brought structure to what was a very complex engineering challenge. He built the team, designed the electronics architecture, and kept development on track from first prototype through to shareholder demos."</p>
           <footer class="proof__quote-footer">
             <img src="assets/images/davincni.webp"
                  alt="Davinci Kitchen"
@@ -432,8 +440,8 @@
                  width="44" height="44"
                  loading="lazy" decoding="async" />
             <div>
-              <strong class="proof__quote-name">Founder, Davinci Kitchen</strong>
-              <span class="proof__quote-company">Davinci Kitchen</span>
+              <strong class="proof__quote-name" data-i18n="proof_q1_name">Founder, Davinci Kitchen</strong>
+              <span class="proof__quote-company" data-i18n="proof_q1_company">Davinci Kitchen</span>
             </div>
           </footer>
         </blockquote>
@@ -442,7 +450,7 @@
           <svg class="proof__quote-mark" viewBox="0 0 32 24" aria-hidden="true">
             <path d="M0 24V14.4C0 10.08 1.28 6.56 3.84 3.84 6.4 1.12 9.92 0 14.4 0v4.8c-2.88 0-5.12.8-6.72 2.4C6.08 8.8 5.28 11.2 5.28 14.4H9.6V24H0zm17.6 0V14.4c0-4.32 1.28-7.84 3.84-10.56C24 1.12 27.52 0 32 0v4.8c-2.88 0-5.12.8-6.72 2.4-1.6 1.6-2.4 4-2.4 7.2h4.32V24H17.6z" fill="currentColor"/>
           </svg>
-          <p class="proof__quote-text">"The robotic EV charging system PROTONU developed for us eliminated the need for any driver interaction at the charge port — the simulation was accurate, the integration clean, and delivery was on schedule."</p>
+          <p class="proof__quote-text" data-i18n="proof_q2_text">"The robotic EV charging system PROTONU developed for us eliminated the need for any driver interaction at the charge port — the simulation was accurate, the integration clean, and delivery was on schedule."</p>
           <footer class="proof__quote-footer">
             <img src="assets/images/ford.webp"
                  alt="Kopernikus Automotive"
@@ -450,8 +458,8 @@
                  width="44" height="44"
                  loading="lazy" decoding="async" />
             <div>
-              <strong class="proof__quote-name">Engineering Lead, Kopernikus Automotive</strong>
-              <span class="proof__quote-company">Kopernikus Automotive</span>
+              <strong class="proof__quote-name" data-i18n="proof_q2_name">Engineering Lead, Kopernikus Automotive</strong>
+              <span class="proof__quote-company" data-i18n="proof_q2_company">Kopernikus Automotive</span>
             </div>
           </footer>
         </blockquote>
@@ -464,13 +472,13 @@
   <section class="process" id="process" aria-labelledby="process-title">
     <div class="process__header">
       <div>
-        <p class="eyebrow">The Process</p>
-        <h2 class="section-title" id="process-title">
+        <p class="eyebrow" data-i18n="process_eyebrow">The Process</p>
+        <h2 class="section-title" id="process-title" data-i18n-html="process_title">
           Three steps.<br>Real results.
         </h2>
       </div>
-      <p class="process__intro">
-        Every project follows the same rigorous method &mdash; built around
+      <p class="process__intro" data-i18n="process_intro">
+        Every project follows the same rigorous method — built around
         your goals, your constraints, and your timeline.
       </p>
     </div>
@@ -480,8 +488,8 @@
       <li class="process__item" data-animate>
         <div class="process__num" aria-hidden="true">01</div>
         <div class="process__body">
-          <h3 class="process__title">Discover &amp; Define</h3>
-          <p class="process__desc">
+          <h3 class="process__title" data-i18n="process_1_title">Discover &amp; Define</h3>
+          <p class="process__desc" data-i18n="process_1_desc">
             We map your current workflow, pinpoint the biggest automation
             opportunities and agree on measurable goals before a single line
             of code is written.
@@ -492,9 +500,9 @@
       <li class="process__item" data-animate>
         <div class="process__num" aria-hidden="true">02</div>
         <div class="process__body">
-          <h3 class="process__title">Prototype &amp; Validate</h3>
-          <p class="process__desc">
-            A working prototype &mdash; hardware, software or both &mdash;
+          <h3 class="process__title" data-i18n="process_2_title">Prototype &amp; Validate</h3>
+          <p class="process__desc" data-i18n="process_2_desc">
+            A working prototype — hardware, software or both —
             proves the concept with your team. Iterate fast, validate early,
             avoid expensive late-stage surprises.
           </p>
@@ -504,8 +512,8 @@
       <li class="process__item" data-animate>
         <div class="process__num" aria-hidden="true">03</div>
         <div class="process__body">
-          <h3 class="process__title">Deploy &amp; Optimise</h3>
-          <p class="process__desc">
+          <h3 class="process__title" data-i18n="process_3_title">Deploy &amp; Optimise</h3>
+          <p class="process__desc" data-i18n="process_3_desc">
             We deploy the production solution, measure real-world performance
             against your goals, and fine-tune until the results speak for
             themselves.
@@ -520,10 +528,10 @@
   <section class="projects" id="projects" aria-labelledby="projects-title">
     <div class="projects__header">
       <div>
-        <p class="eyebrow">Case Studies</p>
-        <h2 class="section-title" id="projects-title">Selected Work</h2>
+        <p class="eyebrow" data-i18n="projects_eyebrow">Case Studies</p>
+        <h2 class="section-title" id="projects-title" data-i18n="projects_title">Selected Work</h2>
       </div>
-      <p class="projects__hint">Click any project to explore</p>
+      <p class="projects__hint" data-i18n="projects_hint">Click any project to explore</p>
     </div>
 
     <!--
@@ -688,18 +696,18 @@
     <div class="roi__inner">
 
       <div class="roi__copy">
-        <p class="eyebrow">Free Estimate</p>
-        <h2 class="section-title" id="roi-title">How much could<br>you save?</h2>
-        <p class="roi__sub">
+        <p class="eyebrow" data-i18n="roi_eyebrow">Free Estimate</p>
+        <h2 class="section-title" id="roi-title" data-i18n-html="roi_title">How much could<br>you save?</h2>
+        <p class="roi__sub" data-i18n="roi_sub">
           Enter your current operation below for an instant estimate.
           A scoping call unlocks the full financial model tailored to your process.
         </p>
         <a class="btn btn--primary roi__copy-cta" href="https://calendly.com/ibrahim-protonu"
-           target="_blank" rel="noopener noreferrer" data-magnetic>
-          Get Your Detailed Report &rarr;
+           target="_blank" rel="noopener noreferrer" data-magnetic data-i18n="roi_cta">
+          Get Your Detailed Report →
         </a>
-        <p class="roi__copy-note">
-          Pick your slot instantly &mdash; no waiting, no sales rep, no obligation.
+        <p class="roi__copy-note" data-i18n="roi_note">
+          Pick your slot instantly — no waiting, no sales rep, no obligation.
         </p>
       </div>
 
@@ -707,7 +715,7 @@
         <div class="roi__fields">
 
           <label class="roi__field">
-            <span class="roi__label">Industry</span>
+            <span class="roi__label" data-i18n="roi_label_industry">Industry</span>
             <select id="roiIndustry" class="roi__input">
               <option value="1.0">Manufacturing</option>
               <option value="1.1">Logistics &amp; Warehousing</option>
@@ -718,17 +726,17 @@
           </label>
 
           <label class="roi__field">
-            <span class="roi__label">Manual hours&nbsp;/ day on target task</span>
+            <span class="roi__label" data-i18n-html="roi_label_hours">Manual hours&nbsp;/ day on target task</span>
             <input class="roi__input" type="number" id="roiHours" min="1" max="24" value="8" />
           </label>
 
           <label class="roi__field">
-            <span class="roi__label">Workers on this task</span>
+            <span class="roi__label" data-i18n="roi_label_workers">Workers on this task</span>
             <input class="roi__input" type="number" id="roiWorkers" min="1" max="200" value="3" />
           </label>
 
           <label class="roi__field">
-            <span class="roi__label">Avg. hourly labour cost (&euro;)</span>
+            <span class="roi__label" data-i18n-html="roi_label_rate">Avg. hourly labour cost (&euro;)</span>
             <input class="roi__input" type="number" id="roiRate" min="10" max="300" value="28" />
           </label>
 
@@ -737,23 +745,23 @@
         <div class="roi__output" aria-live="polite" aria-label="Savings estimate">
           <div class="roi__output-item">
             <span class="roi__output-num" id="roiSavings" data-current="0">&mdash;</span>
-            <span class="roi__output-label">Est. annual saving</span>
+            <span class="roi__output-label" data-i18n="roi_out_saving">Est. annual saving</span>
           </div>
           <div class="roi__output-divider" aria-hidden="true"></div>
           <div class="roi__output-item">
             <span class="roi__output-num" id="roiPayback" data-current="0">&mdash;</span>
-            <span class="roi__output-label">Typical payback period</span>
+            <span class="roi__output-label" data-i18n="roi_out_payback">Typical payback period</span>
           </div>
         </div>
 
-        <p class="roi__note">
+        <p class="roi__note" data-i18n-html="roi_disclaimer">
           Based on industry benchmarks assuming ~65&nbsp;% automation efficiency gain.
           Actual results vary by process complexity.
         </p>
 
         <a class="btn btn--primary" href="https://calendly.com/ibrahim-protonu"
-           target="_blank" rel="noopener noreferrer" data-magnetic>
-          Get Your Detailed Report &rarr;
+           target="_blank" rel="noopener noreferrer" data-magnetic data-i18n="roi_cta">
+          Get Your Detailed Report →
         </a>
       </div>
 
@@ -763,7 +771,7 @@
   <!-- ===================== COMPATIBILITY ===================== -->
   <div class="compat" aria-label="Integration compatibility">
     <div class="compat__inner">
-      <p class="compat__label">Skills &middot; Protocols &middot; Software</p>
+      <p class="compat__label" data-i18n="compat_label">Skills · Protocols · Software</p>
       <ul class="compat__list">
         <li>Universal Robots</li>
         <li>KUKA</li>
@@ -789,7 +797,7 @@
         <li>OpenClaw</li>
         <li>Claude&nbsp;Code</li>
       </ul>
-      <p class="compat__assurance">
+      <p class="compat__assurance" data-i18n-html="compat_assurance">
         From PCB to pipeline &middot; Hardware, vision, software &mdash; every layer, in-house
       </p>
     </div>
@@ -798,25 +806,25 @@
   <!-- ===================== CTA BANNER ===================== -->
   <section class="cta-banner" id="contact" aria-labelledby="cta-title">
     <div class="cta-banner__inner">
-      <p class="eyebrow eyebrow--center">Let&rsquo;s Build Something</p>
-      <h2 class="cta-banner__title" id="cta-title">
+      <p class="eyebrow eyebrow--center" data-i18n="cta_eyebrow">Let's Build Something</p>
+      <h2 class="cta-banner__title" id="cta-title" data-i18n-html="cta_title">
         Ready to automate<br>your next project?
       </h2>
-      <p class="cta-banner__sub">
-        Book a free 30-minute strategy call. We&rsquo;ll audit your process, identify
-        automation opportunities, and walk through your ROI projection &mdash;
+      <p class="cta-banner__sub" data-i18n="cta_sub">
+        Book a free 30-minute strategy call. We'll audit your process, identify
+        automation opportunities, and walk through your ROI projection —
         no sales pitch, no obligation.
       </p>
       <div class="cta-banner__actions">
         <a class="btn btn--white" href="https://calendly.com/ibrahim-protonu"
-           target="_blank" rel="noopener noreferrer" data-magnetic>
+           target="_blank" rel="noopener noreferrer" data-magnetic data-i18n="cta_schedule">
           Schedule Your Free Audit
         </a>
         <a class="btn btn--ghost-white"
            href="https://api.whatsapp.com/send/?phone=31626192418&text=Hello+Ibrahim&app_absent=0"
            target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Message on WhatsApp
+          <span data-i18n="cta_whatsapp">Message on WhatsApp</span>
         </a>
       </div>
     </div>
@@ -852,7 +860,7 @@
         KVK: 71072853
       </a>
     </div>
-    <p class="footer__copy">&copy; PROTONU 2018 &ndash; <span id="year"></span> All Rights Reserved.</p>
+    <p class="footer__copy" data-i18n-html="footer_copy">&copy; PROTONU 2018 &ndash; 2026 All Rights Reserved.</p>
   </footer>
 
   <!-- ===================== MODAL ===================== -->
@@ -871,13 +879,14 @@
         <p class="modal__desc"   id="modalDesc"></p>
         <p class="modal__tags"   id="modalTags"></p>
         <a class="modal__link" id="modalLink" href="#" target="_blank" rel="noopener noreferrer" hidden>
-          Visit Website
+          <span data-i18n="modal_visit">Visit Website</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
       </div>
     </div>
   </div>
 
+  <script src="js/i18n.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

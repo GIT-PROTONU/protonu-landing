@@ -1,9 +1,4 @@
 /* =============================================
-   YEAR
-   ============================================= */
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* =============================================
    SCROLL PROGRESS BAR  (RAF-throttled)
    ============================================= */
 const scrollBar = document.getElementById('scrollBar');

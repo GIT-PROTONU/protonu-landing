@@ -1198,6 +1198,79 @@ select.roi__input option { background: #0C0C15; }
 .btn            { touch-action: manipulation; }
 
 /* =============================================
+   LANG SWITCHER
+   ============================================= */
+.lang-switcher {
+  position: relative;
+}
+.lang-switcher__trigger {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  background: none;
+  border: 1px solid var(--border-mid);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: .75rem;
+  font-weight: 600;
+  font-family: var(--font);
+  letter-spacing: .07em;
+  padding: .38rem .65rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .2s, border-color .2s;
+}
+.lang-switcher__trigger:hover {
+  color: var(--white);
+  border-color: var(--border-bright);
+}
+.lang-switcher__trigger svg {
+  flex-shrink: 0;
+  transition: transform .2s var(--ease);
+}
+.lang-switcher__trigger[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+.lang-switcher__menu {
+  position: absolute;
+  top: calc(100% + .5rem);
+  right: 0;
+  background: #13131F;
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  padding: .35rem;
+  list-style: none;
+  min-width: 130px;
+  z-index: 500;
+  display: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,.55);
+}
+.lang-switcher__menu.open { display: block; }
+.lang-switcher__btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: .82rem;
+  font-weight: 500;
+  padding: .45rem .8rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: background .15s, color .15s;
+}
+.lang-switcher__btn:hover {
+  background: rgba(255,255,255,.07);
+  color: var(--white);
+}
+.lang-switcher__btn.active {
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* =============================================
    PERFORMANCE — reduced-motion
    ============================================= */
 @media (prefers-reduced-motion: reduce) {
