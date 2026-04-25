@@ -411,3 +411,13 @@ const navObs = new IntersectionObserver(entries => {
 }, { rootMargin: '-30% 0px -60% 0px' });
 
 sections.forEach(s => navObs.observe(s));
+
+/* =============================================
+   MARQUEE — exact pixel offset
+   ============================================= */
+requestAnimationFrame(() => {
+  const track = document.querySelector('.marquee__track');
+  if (track) {
+    track.style.setProperty('--marquee-offset', `-${Math.round(track.scrollWidth / 2)}px`);
+  }
+});
