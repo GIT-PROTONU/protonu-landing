@@ -249,17 +249,18 @@
     <div class="lang-switcher">
       <button class="lang-switcher__trigger" id="langBtn"
               aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+        <span class="lang-switcher__flag" aria-hidden="true">🇬🇧</span>
         <span class="lang-switcher__current">EN</span>
         <svg viewBox="0 0 10 6" fill="none" aria-hidden="true" width="10" height="6">
           <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>
       <ul class="lang-switcher__menu" id="langMenu" role="listbox" aria-label="Language">
-        <li><button class="lang-switcher__btn active" data-lang="en" role="option" aria-pressed="true">English</button></li>
-        <li><button class="lang-switcher__btn" data-lang="de" role="option" aria-pressed="false">Deutsch</button></li>
-        <li><button class="lang-switcher__btn" data-lang="nl" role="option" aria-pressed="false">Nederlands</button></li>
-        <li><button class="lang-switcher__btn" data-lang="fr" role="option" aria-pressed="false">Français</button></li>
-        <li><button class="lang-switcher__btn" data-lang="es" role="option" aria-pressed="false">Español</button></li>
+        <li><button class="lang-switcher__btn active" data-lang="en" role="option" aria-pressed="true"><span aria-hidden="true">🇬🇧</span> English</button></li>
+        <li><button class="lang-switcher__btn" data-lang="de" role="option" aria-pressed="false"><span aria-hidden="true">🇩🇪</span> Deutsch</button></li>
+        <li><button class="lang-switcher__btn" data-lang="nl" role="option" aria-pressed="false"><span aria-hidden="true">🇳🇱</span> Nederlands</button></li>
+        <li><button class="lang-switcher__btn" data-lang="fr" role="option" aria-pressed="false"><span aria-hidden="true">🇫🇷</span> Français</button></li>
+        <li><button class="lang-switcher__btn" data-lang="es" role="option" aria-pressed="false"><span aria-hidden="true">🇪🇸</span> Español</button></li>
       </ul>
     </div>
     <a class="btn btn--primary btn--sm" href="https://calendly.com/ibrahim-protonu"
