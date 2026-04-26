@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   /* ---- translation table ---- */
@@ -60,7 +60,7 @@
       roi_cta:            'Get Your Detailed Report →',
       roi_note:           'Pick your slot instantly — no waiting, no sales rep, no obligation.',
       roi_label_industry: 'Industry',
-      roi_label_hours:    'Manual hours&nbsp;/ day on target task',
+      roi_label_hours:    'Manual hours per day on target task',
       roi_label_workers:  'Workers on this task',
       roi_label_rate:     'Avg. hourly labour cost (&euro;)',
       roi_out_saving:     'Est. annual saving',
@@ -76,7 +76,7 @@
 
       /* compat */
       compat_label:     'Skills · Protocols · Software',
-      compat_assurance: 'From PCB to pipeline &middot; Hardware, vision, software — every layer, in-house',
+      compat_assurance: 'From PCB to pipeline &middot; Hardware, vision, software &middot; every layer, in-house',
 
       /* cta banner */
       cta_eyebrow:  'Let’s Build Something',
@@ -134,11 +134,11 @@
 
       roi_eyebrow:        'Kostenlose Schätzung',
       roi_title:          'Wie viel könnten<br>Sie sparen?',
-      roi_sub:            'Geben Sie Ihren aktuellen Betrieb ein für eine sofortige Schätzung. Ein Beratungsgespräch erschließt das vollständige, auf Ihren Prozess zugeschnittene Finanzmodell.',
+      roi_sub:            'Geben Sie Ihre aktuellen Betriebsdaten ein, um eine sofortige Schätzung zu erhalten. Ein Beratungsgespräch erschließt das vollständige, auf Ihren Prozess zugeschnittene Finanzmodell.',
       roi_cta:            'Detaillierten Bericht anfordern →',
       roi_note:           'Sofort Termin buchen — kein Warten, kein Vertrieb, keine Verpflichtung.',
       roi_label_industry: 'Branche',
-      roi_label_hours:    'Manuelle Stunden&nbsp;/ Tag bei der Zieltätigkeit',
+      roi_label_hours:    'Manuelle Stunden pro Tag bei der Zieltätigkeit',
       roi_label_workers:  'Mitarbeiter auf dieser Aufgabe',
       roi_label_rate:     'Durchschn. Stundenlohnkosten (&euro;)',
       roi_out_saving:     'Gesch. Jahreseinsparung',
@@ -153,7 +153,7 @@
       ],
 
       compat_label:     'Fähigkeiten · Protokolle · Software',
-      compat_assurance: 'Von der Leiterplatte bis zur Pipeline &middot; Hardware, Vision, Software — jede Schicht, intern',
+      compat_assurance: 'Von der Leiterplatte bis zur Pipeline &middot; Hardware, Vision, Software &middot; jede Schicht, intern',
 
       cta_eyebrow:  'Lassen Sie uns etwas bauen',
       cta_title:    'Bereit, Ihr nächstes<br>Projekt zu automatisieren?',
@@ -186,10 +186,10 @@
 
       proof_eyebrow:    'Klantresultaten',
       proof_title:      'Echte resultaten,<br>in productie.',
-      proof_q1_text:    '„Ibrahim trad aan als CTO en bracht direct structuur in een zeer complexe technische uitdaging. Hij bouwde het team op, ontwierp de elektronica-architectuur en hield de ontwikkeling op koers van eerste prototype tot aandeelhoudersdemo’s.“',
+      proof_q1_text:    '„Ibrahim trad aan als CTO en bracht direct structuur in een zeer complexe technische uitdaging. Hij bouwde het team op, ontwierp de elektronica-architectuur en hield de ontwikkeling op koers van het eerste prototype tot aandeelhoudersdemo’s.”',
       proof_q1_name:    'Oprichter, Davinci Kitchen',
       proof_q1_company: 'Davinci Kitchen',
-      proof_q2_text:    '„Het robotische EV-laadsysteem dat PROTONU voor ons ontwikkelde, elimineert elke interactie van de bestuurder bij de laadpoort — de simulatie was nauwkeurig, de integratie strak en de levering was op tijd.“',
+      proof_q2_text:    '„Het robotische EV-laadsysteem dat PROTONU voor ons ontwikkelde, elimineerde elke interactie van de bestuurder bij de laadpoort — de simulatie was nauwkeurig, de integratie strak en de levering was op tijd.”',
       proof_q2_name:    'Engineering Lead, Kopernikus Automotive',
       proof_q2_company: 'Kopernikus Automotive',
 
@@ -210,10 +210,10 @@
       roi_eyebrow:        'Gratis schatting',
       roi_title:          'Hoeveel kunt<br>u besparen?',
       roi_sub:            'Voer uw huidige situatie in voor een directe schatting. Een intakegesprek ontsluit het volledige financiële model op maat van uw proces.',
-      roi_cta:            'Ontvang uw gedetailleerd rapport →',
+      roi_cta:            'Ontvang uw gedetailleerde rapport →',
       roi_note:           'Direct een afspraak inplannen — geen wachten, geen verkoper, geen verplichtingen.',
       roi_label_industry: 'Sector',
-      roi_label_hours:    'Handmatige uren&nbsp;/ dag voor deze taak',
+      roi_label_hours:    'Handmatige uren per dag voor deze taak',
       roi_label_workers:  'Medewerkers op deze taak',
       roi_label_rate:     'Gem. uurloonkosten (&euro;)',
       roi_out_saving:     'Gesch. jaarlijkse besparing',
@@ -228,11 +228,11 @@
       ],
 
       compat_label:     'Vaardigheden · Protocollen · Software',
-      compat_assurance: 'Van PCB tot pipeline &middot; Hardware, vision, software — elke laag, intern',
+      compat_assurance: 'Van PCB tot pipeline &middot; Hardware, vision, software &middot; elke laag, intern',
 
       cta_eyebrow:  'Laten we iets bouwen',
       cta_title:    'Klaar om uw volgende<br>project te automatiseren?',
-      cta_sub:      'Boek een gratis 30-minuten strategiegesprek. We auditen uw proces, identificeren automatiseringskansen en nemen uw ROI-projectie door — geen verkoopgespräch, geen verplichtingen.',
+      cta_sub:      'Boek een gratis 30-minuten strategiegesprek. We auditen uw proces, identificeren automatiseringskansen en nemen uw ROI-projectie door — geen verkoopgesprek, geen verplichtingen.',
       cta_schedule: 'Plan uw gratis audit',
       cta_whatsapp: 'Stuur een WhatsApp',
 
@@ -288,10 +288,10 @@
       roi_cta:            'Obtenir votre rapport détaillé →',
       roi_note:           'Choisissez votre créneau instantanément — pas d’attente, pas de commercial, pas d’obligation.',
       roi_label_industry: 'Secteur',
-      roi_label_hours:    'Heures manuelles&nbsp;/ jour sur la tâche cible',
+      roi_label_hours:    'Heures manuelles par jour sur la tâche cible',
       roi_label_workers:  'Employés sur cette tâche',
       roi_label_rate:     'Coût horaire moyen (&euro;)',
-      roi_out_saving:     'Économie annuelle est.',
+      roi_out_saving:     'Économie annuelle estimée',
       roi_out_payback:    'Délai de retour typique',
       roi_disclaimer:     'Basé sur des benchmarks sectoriels supposant ~65&nbsp;% de gain d’efficacité. Les résultats réels varient selon la complexité du processus.',
       _roiOptions: [
@@ -303,7 +303,7 @@
       ],
 
       compat_label:     'Compétences · Protocoles · Logiciels',
-      compat_assurance: 'Du PCB au pipeline &middot; Matériel, vision, logiciel — chaque couche, en interne',
+      compat_assurance: 'Du PCB au pipeline &middot; Matériel, vision, logiciel &middot; chaque couche, en interne',
 
       cta_eyebrow:  'Construisons quelque chose',
       cta_title:    'Prêt à automatiser<br>votre prochain projet ?',
@@ -355,7 +355,7 @@
 
       projects_eyebrow: 'Casos de éxito',
       projects_title:   'Trabajo seleccionado',
-      projects_hint:    'Haz clic en un proyecto para explorar',
+      projects_hint:    'Haga clic en un proyecto para explorar',
 
       roi_eyebrow:        'Estimación gratuita',
       roi_title:          '¿Cuánto podría<br>ahorrar?',
@@ -363,10 +363,10 @@
       roi_cta:            'Obtener su informe detallado →',
       roi_note:           'Reserve su espacio al instante — sin esperas, sin comerciales, sin compromiso.',
       roi_label_industry: 'Sector',
-      roi_label_hours:    'Horas manuales&nbsp;/ día en la tarea objetivo',
+      roi_label_hours:    'Horas manuales por día en la tarea objetivo',
       roi_label_workers:  'Trabajadores en esta tarea',
       roi_label_rate:     'Coste laboral por hora (&euro;)',
-      roi_out_saving:     'Ahorro anual est.',
+      roi_out_saving:     'Ahorro anual estimado',
       roi_out_payback:    'Período de retorno típico',
       roi_disclaimer:     'Basado en benchmarks del sector asumiendo ~65&nbsp;% de ganancia en eficiencia. Los resultados reales varían según la complejidad del proceso.',
       _roiOptions: [
@@ -378,7 +378,7 @@
       ],
 
       compat_label:     'Habilidades · Protocolos · Software',
-      compat_assurance: 'Del PCB al pipeline &middot; Hardware, visión, software — cada capa, en casa',
+      compat_assurance: 'Del PCB al pipeline &middot; Hardware, visión, software &middot; cada capa, internamente',
 
       cta_eyebrow:  'Construyamos algo juntos',
       cta_title:    '¿Listo para automatizar<br>su próximo proyecto?',
