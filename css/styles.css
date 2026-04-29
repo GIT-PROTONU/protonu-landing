@@ -233,7 +233,21 @@ a   { color:inherit; text-decoration:none; }
 
 /* Hero text column */
 .hero__text {
+  position: relative;
   display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem;
+}
+.hero__text > * { position: relative; z-index: 1; }
+.hero__text::before {
+  content: "";
+  position: absolute;
+  inset: -1.75rem -2.25rem;
+  background: rgba(7,7,14,.22);
+  backdrop-filter: blur(8px) saturate(.9);
+  -webkit-backdrop-filter: blur(8px) saturate(.9);
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.25);
+  z-index: 0;
 }
 
 /* Headline */
@@ -260,9 +274,10 @@ a   { color:inherit; text-decoration:none; }
 /* Sub and actions */
 .hero__sub {
   font-size: 1.05rem;
-  color: var(--text);
+  color: var(--white);
   max-width: 50ch;
   line-height: 1.85;
+  text-shadow: 0 1px 8px rgba(0,0,0,.7), 0 1px 2px rgba(0,0,0,.6);
 }
 .hero__actions {
   display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
@@ -294,7 +309,7 @@ a   { color:inherit; text-decoration:none; }
 .corner--br { bottom:-8px;right:-8px;  border-width: 0 2px 2px 0; }
 
 .hero__photo-wrap > a img {
-  width: 300px; height: 300px;
+  width: 270px; height: 270px;
   object-fit: cover;
   border-radius: var(--radius);
   border: 1px solid var(--border-mid);
@@ -304,6 +319,140 @@ a   { color:inherit; text-decoration:none; }
 }
 .hero__photo-wrap:hover > a img {
   box-shadow: 0 0 0 4px rgba(224,48,48,.22), 0 32px 72px rgba(0,0,0,.8);
+}
+
+/* =============================================
+   HERO CINEMATIC ROBOT BACKGROUND
+   ============================================= */
+.hero__top {
+  position: relative;
+  overflow: hidden;
+  height: 70vh;
+}
+.hero__bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero__slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-out);
+}
+.hero__slide.is-active { opacity: 1; }
+.hero__slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.06);
+  filter: saturate(1) contrast(1.02);
+}
+.hero__slide.is-active img {
+  animation: kenburns 9s linear forwards;
+}
+@keyframes kenburns {
+  from { transform: scale(1.02); }
+  to   { transform: scale(1.06); }
+}
+
+/* Veil — minimal, just a soft bottom fade for marquee handoff.
+   Text legibility is now handled by the glass backdrops behind the
+   hero copy and caption, letting the slideshow imagery breathe. */
+.hero__bg-veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    rgba(7,7,14,.12) 0%,
+    rgba(7,7,14,.05) 55%,
+    rgba(7,7,14,.55) 100%);
+}
+
+/* Lift the layout above the background layers */
+.hero__layout,
+.hero__stats { position: relative; z-index: 2; }
+.hero__grid, .hero__glow { z-index: 1; }
+
+/* LIVE HUD chip — bottom-right of the hero */
+.hero__hud {
+  position: absolute;
+  bottom: 4.5rem; right: 1.5rem;
+  z-index: 3;
+  display: inline-flex; align-items: center; gap: .42rem;
+  background: rgba(4,4,10,.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(224,48,48,.42);
+  border-radius: 999px;
+  padding: .32rem .7rem;
+  font-size: .6rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,.6);
+}
+.hero__hud-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
+  animation: hudPulse 1.5s ease-in-out infinite;
+}
+@keyframes hudPulse {
+  0%, 100% { opacity: 1;  transform: scale(1); }
+  50%      { opacity: .35; transform: scale(.7); }
+}
+
+/* Rotating caption — bottom-right of the hero, beneath the LIVE HUD */
+.hero__caption {
+  position: absolute;
+  bottom: 1rem; right: 1.5rem;
+  z-index: 3;
+  display: flex; flex-direction: column; align-items: flex-end; gap: .15rem;
+  pointer-events: none;
+  max-width: 60%;
+  text-align: right;
+}
+.hero__caption-client {
+  font-size: .62rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .2em;
+  color: var(--red);
+  text-shadow: 0 1px 6px rgba(0,0,0,.9);
+  transition: opacity .45s var(--ease-out), transform .45s var(--ease-out);
+}
+.hero__caption-title {
+  font-size: .98rem; font-weight: 700;
+  color: #fff; line-height: 1.2;
+  text-shadow: 0 1px 8px rgba(0,0,0,.9);
+  transition: opacity .45s var(--ease-out) .05s, transform .45s var(--ease-out) .05s;
+}
+.hero__caption.is-changing .hero__caption-client,
+.hero__caption.is-changing .hero__caption-title {
+  opacity: 0; transform: translateY(6px);
+}
+
+/* Progress strip — bottom edge of hero, fills then resets per slide */
+.hero__progress {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: rgba(255,255,255,.05);
+  overflow: hidden;
+  z-index: 3;
+}
+.hero__progress-bar {
+  display: block;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, var(--red), #FF5E5E);
+  box-shadow: 0 0 10px var(--red-glow);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+.hero__progress-bar.is-running {
+  animation: heroProgress var(--hero-slide-dur, 5s) linear forwards;
+}
+@keyframes heroProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 /* LinkedIn tag */
@@ -345,7 +494,7 @@ a   { color:inherit; text-decoration:none; }
 .hero__stats {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 2.75rem 2.5rem;
+  padding: 1.5rem 2.5rem;
   border-top: 1px solid var(--border);
   display: flex; align-items: center;
   position: relative;
@@ -1071,6 +1220,7 @@ select.roi__input option { background: #0C0C15; }
     gap: 3rem;
   }
   .hero__text { align-items: center; }
+  .hero__text::before { inset: -1.25rem -1.25rem; border-radius: 18px; }
   .hero__sub  { margin-inline: auto; max-width: 44ch; }
 
   .hero__actions {
@@ -1084,19 +1234,21 @@ select.roi__input option { background: #0C0C15; }
   .hero__compat-note  { text-align: center; }
 
   .hero__visual { justify-content: center; }
-  .hero__photo-wrap > a img { width: 220px; height: 220px; }
+  .hero__photo-wrap > a img { width: 198px; height: 198px; }
   .hero__photo-tag {
     white-space: normal;
     max-width: 220px;
     text-align: left;
   }
   .hero__photo-wrap { margin-bottom: 2rem; }
+  .hero__caption { right: 1.25rem; bottom: 1rem; max-width: 55%; }
+  .hero__hud { right: 1.25rem; bottom: 4.25rem; }
 
   .hero__stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.75rem;
-    padding: 2.25rem 1.5rem;
+    padding: 1.25rem 1.5rem;
     align-items: start;
     justify-items: center;
   }
@@ -1149,10 +1301,13 @@ select.roi__input option { background: #0C0C15; }
   .bento__overlay { padding-top: 2.5rem; }
 
   .hero__layout { padding: 3rem 1.25rem 2rem; gap: 2.5rem; }
-  .hero__photo-wrap > a img { width: 190px; height: 190px; }
+  .hero__photo-wrap > a img { width: 171px; height: 171px; }
+  .hero__caption { right: 1rem; bottom: 1rem; max-width: 60%; }
+  .hero__caption-title { font-size: .82rem; }
+  .hero__hud { right: 1rem; bottom: 3.8rem; padding: .25rem .55rem; font-size: .54rem; }
   .hero__photo-tag { max-width: 190px; }
   .hero__photo-wrap { margin-bottom: 1.75rem; }
-  .hero__stats { padding: 2rem 1.25rem; gap: 1.5rem; }
+  .hero__stats { padding: 1rem 1.25rem; gap: 1.5rem; }
   .stat__num { font-size: 2.2rem; }
 
   .proof    { padding: 3.5rem 1.25rem; }
@@ -1296,6 +1451,9 @@ select.roi__input option { background: #0C0C15; }
   [data-reveal]   { opacity: 1 !important; transform: none !important; }
   #scrambleLine   { opacity: 1 !important; }
   .hero__visual   { animation: none; }
+  .hero__slide.is-active img { animation: none; transform: none; }
+  .hero__hud-dot              { animation: none; }
+  .hero__progress-bar         { animation: none; transform: scaleX(1); }
 }
 
 /* =============================================

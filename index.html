@@ -71,7 +71,7 @@
   <link rel="dns-prefetch"  href="https://i.ytimg.com" />
 
   <!-- LCP image: preload with high priority -->
-  <link rel="preload" as="image" href="assets/images/img.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/abs.webp" fetchpriority="high" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css" />
@@ -274,10 +274,41 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="hero">
+   <div class="hero__top">
+    <!-- Robot showcase — cinematic background (image section only) -->
+    <div class="hero__bg" id="heroShowcase" aria-hidden="true">
+      <div class="hero__slide is-active" data-client="ABS Safety" data-title="Vision-Guided Cobots">
+        <img src="assets/images/abs.webp"
+             alt=""
+             fetchpriority="high" decoding="async" />
+      </div>
+      <div class="hero__slide" data-client="KUKA College" data-title="KSS 8.x Programming">
+        <img src="assets/images/kuka.webp" alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="hero__slide" data-client="Kopernikus Automotive" data-title="Robotic EV Charging">
+        <img src="assets/images/ford.webp" alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="hero__slide" data-client="Davinci Kitchen" data-title="Autonomous Cooking Robot">
+        <img src="assets/images/davincni.webp" alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="hero__bg-veil" aria-hidden="true"></div>
+    </div>
+
     <!-- Animated tech grid -->
     <div class="hero__grid" aria-hidden="true"></div>
     <!-- Red ambient glow -->
     <div class="hero__glow" aria-hidden="true"></div>
+
+    <!-- Cinematic HUD pinned bottom-right of the hero -->
+    <div class="hero__hud" aria-hidden="true">
+      <span class="hero__hud-dot"></span>
+      <span class="hero__hud-text">LIVE BUILDS</span>
+    </div>
+    <div class="hero__caption" aria-live="polite">
+      <span class="hero__caption-client" id="heroCaptionClient">ABS Safety</span>
+      <span class="hero__caption-title"  id="heroCaptionTitle">Vision-Guided Cobots</span>
+    </div>
+    <div class="hero__progress" aria-hidden="true"><span class="hero__progress-bar" id="heroProgressBar"></span></div>
 
     <div class="hero__layout">
 
@@ -303,9 +334,6 @@
             Request a System Audit
           </a>
         </div>
-        <p class="hero__compat-note" data-reveal data-i18n-html="hero_compat">
-          No hardware overhaul required &middot; Integrates with existing PLC &amp; SCADA systems
-        </p>
       </div>
 
       <!-- Right: photo — no data-reveal so LCP image is visible immediately -->
@@ -336,6 +364,7 @@
       </div>
 
     </div><!-- /.hero__layout -->
+   </div><!-- /.hero__top -->
 
     <!-- Stats strip -->
     <div class="hero__stats" data-reveal>

@@ -61,6 +61,60 @@ if (document.readyState === 'loading') {
 }
 
 /* =============================================
+   HERO ROBOT SHOWCASE  (auto-cycling slides)
+   ============================================= */
+(function initHeroShowcase() {
+  const showcase = document.getElementById('heroShowcase');
+  if (!showcase) return;
+
+  const slides     = Array.from(showcase.querySelectorAll('.hero__slide'));
+  const caption    = showcase.querySelector('.hero__caption');
+  const capClient  = document.getElementById('heroCaptionClient');
+  const capTitle   = document.getElementById('heroCaptionTitle');
+  const progress   = document.getElementById('heroProgressBar');
+  if (slides.length < 2) return;
+
+  const SLIDE_MS = 5000;     // visible time per slide
+  const FADE_MS  = 450;      // caption fade-out before swap
+  let index      = 0;
+
+  // Honour reduced-motion: stay on first slide, no animations
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Sync the CSS progress-bar duration with JS timing
+  showcase.style.setProperty('--hero-slide-dur', SLIDE_MS + 'ms');
+
+  function startProgress() {
+    if (!progress) return;
+    progress.classList.remove('is-running');
+    // force reflow so the animation restarts cleanly
+    void progress.offsetWidth;
+    progress.classList.add('is-running');
+  }
+
+  function advance() {
+    const next      = (index + 1) % slides.length;
+    const nextSlide = slides[next];
+
+    // Fade caption out, swap text mid-fade, fade back in
+    if (caption) caption.classList.add('is-changing');
+    setTimeout(() => {
+      if (capClient && nextSlide.dataset.client) capClient.textContent = nextSlide.dataset.client;
+      if (capTitle  && nextSlide.dataset.title)  capTitle.textContent  = nextSlide.dataset.title;
+      if (caption) caption.classList.remove('is-changing');
+    }, FADE_MS);
+
+    slides[index].classList.remove('is-active');
+    nextSlide.classList.add('is-active');
+    index = next;
+    startProgress();
+  }
+
+  startProgress();
+  setInterval(advance, SLIDE_MS);
+})();
+
+/* =============================================
    COUNT-UP STATS
    ============================================= */
 function countUp(el, target, duration = 1400) {
