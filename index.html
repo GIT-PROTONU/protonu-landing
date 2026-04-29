@@ -277,38 +277,41 @@
    <div class="hero__top">
     <!-- Robot showcase — cinematic background (image section only) -->
     <div class="hero__bg" id="heroShowcase" aria-hidden="true">
-      <div class="hero__slide is-active" data-client="ABS Safety" data-title="Vision-Guided Cobots">
+      <div class="hero__slide is-active" data-num="02" data-client="ABS Safety" data-title="Vision-Guided Cobots">
         <img src="assets/images/abs.webp"
              alt=""
              fetchpriority="high" decoding="async" />
       </div>
-      <div class="hero__slide" data-client="KUKA College" data-title="KSS 8.x Programming">
+      <div class="hero__slide" data-num="06" data-client="KUKA College" data-title="KSS 8.x Programming">
         <img src="assets/images/kuka.webp" alt="" loading="lazy" decoding="async" />
       </div>
-      <div class="hero__slide" data-client="Kopernikus Automotive" data-title="Robotic EV Charging">
+      <div class="hero__slide" data-num="05" data-client="Kopernikus Automotive" data-title="Robotic EV Charging">
         <img src="assets/images/ford.webp" alt="" loading="lazy" decoding="async" />
       </div>
-      <div class="hero__slide" data-client="Davinci Kitchen" data-title="Autonomous Cooking Robot">
+      <div class="hero__slide" data-num="04" data-client="Davinci Kitchen" data-title="Autonomous Cooking Robot">
         <img src="assets/images/davincni.webp" alt="" loading="lazy" decoding="async" />
       </div>
       <div class="hero__bg-veil" aria-hidden="true"></div>
+
+      <!-- Cinematic HUD pinned bottom-right of the slideshow -->
+      <div class="hero__hud" aria-hidden="true">
+        <span class="hero__hud-dot"></span>
+        <span class="hero__hud-text">LIVE BUILDS</span>
+      </div>
+      <div class="hero__caption" aria-live="polite">
+        <div class="hero__caption-row">
+          <span class="hero__caption-num"    id="heroCaptionNum" aria-hidden="true">02</span>
+          <span class="hero__caption-client" id="heroCaptionClient">ABS Safety</span>
+        </div>
+        <span class="hero__caption-title" id="heroCaptionTitle">Vision-Guided Cobots</span>
+      </div>
+      <div class="hero__progress" aria-hidden="true"><span class="hero__progress-bar" id="heroProgressBar"></span></div>
     </div>
 
     <!-- Animated tech grid -->
     <div class="hero__grid" aria-hidden="true"></div>
     <!-- Red ambient glow -->
     <div class="hero__glow" aria-hidden="true"></div>
-
-    <!-- Cinematic HUD pinned bottom-right of the hero -->
-    <div class="hero__hud" aria-hidden="true">
-      <span class="hero__hud-dot"></span>
-      <span class="hero__hud-text">LIVE BUILDS</span>
-    </div>
-    <div class="hero__caption" aria-live="polite">
-      <span class="hero__caption-client" id="heroCaptionClient">ABS Safety</span>
-      <span class="hero__caption-title"  id="heroCaptionTitle">Vision-Guided Cobots</span>
-    </div>
-    <div class="hero__progress" aria-hidden="true"><span class="hero__progress-bar" id="heroProgressBar"></span></div>
 
     <div class="hero__layout">
 
