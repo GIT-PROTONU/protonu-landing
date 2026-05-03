@@ -1,7 +1,8 @@
 /* =============================================
-   SCROLL PROGRESS BAR  (RAF-throttled)
+   SCROLL PROGRESS BAR + NAV SHADOW  (RAF-throttled)
    ============================================= */
 const scrollBar = document.getElementById('scrollBar');
+const navEl     = document.querySelector('.nav');
 let scrollRafPending = false;
 window.addEventListener('scroll', () => {
   if (scrollRafPending) return;
@@ -9,6 +10,7 @@ window.addEventListener('scroll', () => {
   requestAnimationFrame(() => {
     const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     scrollBar.style.transform = `scaleX(${pct})`;
+    if (navEl) navEl.classList.toggle('is-scrolled', window.scrollY > 8);
     scrollRafPending = false;
   });
 }, { passive: true });
