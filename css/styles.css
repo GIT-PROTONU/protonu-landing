@@ -626,11 +626,38 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
    PROCESS
    ============================================= */
 .process {
+  position: relative;
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 6rem 2.5rem;
   border-bottom: 1px solid var(--border);
+  isolation: isolate;
 }
+/* Glow lights up the section title (top-left, where "Three steps" sits) */
+.process::before {
+  content: '';
+  position: absolute;
+  top: 3rem; left: -10%;
+  width: 560px; height: 560px;
+  background: radial-gradient(circle, rgba(224,48,48,.045) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+/* Grid extends right from the title, fades out before the numbered steps */
+.process::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.014) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 55% 35% at 8% 12%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse 55% 35% at 8% 12%, #000 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+.process > * { position: relative; }
 .process__header {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -685,10 +712,32 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
    PROJECTS
    ============================================= */
 .projects {
+  position: relative;
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 6rem 2.5rem;
   border-bottom: 1px solid var(--border);
+  isolation: isolate;
+}
+/* Glow follows the reading rhythm: top-left under "Selected Work" */
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 2rem; left: -8%;
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(224,48,48,.035) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+/* Then bottom-right, closing the diagonal across the bento */
+.projects::after {
+  content: '';
+  position: absolute;
+  bottom: 2rem; right: -8%;
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(224,48,48,.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
 }
 .projects__header {
   display: flex; align-items: flex-end; justify-content: space-between;
@@ -840,13 +889,31 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
   position: relative; overflow: hidden;
   background: var(--bg-2);
   border-top: 1px solid var(--border);
+  isolation: isolate;
 }
+/* Two paired glows — the strong one rises behind the CTA buttons,
+   a softer accent above the eyebrow, framing the headline */
 .cta-banner::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 115%,
-    rgba(224,48,48,.11), transparent);
+  background:
+    radial-gradient(ellipse 50% 60% at 50% 90%, rgba(224,48,48,.11) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 35% at 50% 10%, rgba(224,48,48,.03) 0%, transparent 60%);
   pointer-events: none;
+  z-index: -2;
+}
+/* Grid pulled up from below by the glow */
+.cta-banner::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.014) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 95%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 95%, #000 0%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
 }
 .cta-banner__inner {
   max-width: var(--max-w);
@@ -875,11 +942,40 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
    FOOTER
    ============================================= */
 .footer {
+  position: relative;
   background: #050509;
   border-top: 1px solid var(--border);
   padding: 3rem 2.5rem;
   text-align: center;
+  overflow: hidden;
+  isolation: isolate;
 }
+/* Soft resolution glow at the seam — narrower than the CTA's peak above it */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 620px; height: 240px;
+  background: radial-gradient(ellipse, rgba(224,48,48,.04) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: -2;
+}
+/* Tiny grid hint, only at the very top edge */
+.footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.011) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.011) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 45% 70% at 50% 0%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 45% 70% at 50% 0%, #000 0%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
+}
+.footer__social, .footer__copy { position: relative; }
 .footer__social {
   display: flex; justify-content: center; align-items: center;
   flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem;
@@ -1024,10 +1120,39 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
    SOCIAL PROOF
    ============================================= */
 .proof {
+  position: relative;
   border-bottom: 1px solid var(--border);
   padding: 6rem 2.5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Wide ellipse pools beneath both quotes, framing the testimonial cards */
+.proof::before {
+  content: '';
+  position: absolute;
+  bottom: -180px; left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, 95%); height: 460px;
+  background: radial-gradient(ellipse, rgba(224,48,48,.04) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: -1;
+}
+/* Grid feathers up under the quotes */
+.proof::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 80%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 80%, #000 0%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
 }
 .proof__inner {
+  position: relative;
   max-width: var(--max-w);
   margin: 0 auto;
 }
@@ -1087,11 +1212,54 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
    ROI CALCULATOR
    ============================================= */
 .roi {
+  position: relative;
   border-bottom: 1px solid var(--border);
   background: var(--bg-2);
   padding: 6rem 2.5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Glow centered on the calculator card — the conversion focal point (right column) */
+.roi::before {
+  content: '';
+  position: absolute;
+  top: 50%; right: -8%;
+  transform: translateY(-50%);
+  width: 620px; height: 620px;
+  background: radial-gradient(circle, rgba(224,48,48,.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Grid lit by that same glow, fading toward the copy column */
+.roi::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.013) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.013) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 50% 70% at 85% 50%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 50% 70% at 85% 50%, #000 0%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* On mobile (single column) the card sits below copy — center the glow */
+@media (max-width: 1000px) {
+  .roi::before {
+    top: auto; bottom: -10%;
+    right: 50%;
+    transform: translateX(50%);
+    width: 560px; height: 560px;
+  }
+  .roi::after {
+    -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 85%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 50% at 50% 85%, #000 0%, transparent 75%);
+  }
 }
 .roi__inner {
+  position: relative;
+  z-index: 1;
   max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
@@ -1226,11 +1394,26 @@ select.roi__input option { background: #0C0C15; }
    COMPATIBILITY STRIP
    ============================================= */
 .compat {
+  position: relative;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: 4rem 2.5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Wide, low spotlight under the pill cluster — matches the centered, horizontal flow of the list */
+.compat::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(960px, 90%); height: 260px;
+  background: radial-gradient(ellipse, rgba(224,48,48,.035) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: -1;
 }
 .compat__inner {
+  position: relative;
   max-width: var(--max-w);
   margin: 0 auto;
   display: flex;
